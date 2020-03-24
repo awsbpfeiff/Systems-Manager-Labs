@@ -19,3 +19,50 @@ This workshop is intended to provide a 200-300 level hands on experience with co
 15.	**Explorer** - View consolidated inventory data from multiple AWS Regions and accounts that you manage. 
 16.	**AppConfig** - Create, manage, and safely deploy application configuration data to your targets at runtime.
 17.	**Hybrid Activations** - Create an activation to register on-premises servers and virtual machines (VMs), non-AWS Cloud servers, and other devices with AWS Systems Manager. Centrally manage Amazon EC2 instances and your hybrid environment from one location.
+
+
+## Accessing AWS Account for Hands-on Labs
+
+1.	Browse to https://dashboard.eventengine.run 
+2.	Log in with the team hash that is provided to you – This will be your own account
+
+![Event Engine first image](https://github.com/billpfeiffer/Systems-Manager-Labs/blob/master/images/event_engine_1.png)
+
+3.	Log into the console using the provided Login Link
+
+![Event Engine second image](https://github.com/billpfeiffer/Systems-Manager-Labs/blob/master/images/event_engine_2.png)
+	 
+Note: Once the event is complete, the account will be deleted.  
+
+## Setup - Managed Instances
+
+We will need to have a couple instances deployed to work with throughout the workshop.  This will be provided to the participants as homework ahead of the day or the workshop to ensure we have enough time to get through the material. 
+
+## Create Key Pair
+1.	In the management console navigate to us-east-1
+2.	Use your administrator account to access the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+3.	In the EC2 navigation pane under **Network & Security**, select Key Pairs and then select **Create Key Pair**.
+4.	In the **Create Key Pair** dialog box, type a **Key pair name** such as **SM-Workshop** and then select **Create**.
+5.	Save the keypairname.pem file for optional later use accessing the EC2 instances created in this lab.
+
+## Create a Managed Instance IAM Role / Instance Profile
+An IAM role is used to register instances with Systems Manager.  IAM role is used for Systems Manager Managed Instance (MI) in AWS and MI’s using an activation code in hybrid configurations. 
+
+1. Create an Instance Profile for Systems Manager managed instances:
+   - Navigate to the IAM console
+   - In the navigation pane, select **Roles**.
+   - Then select **Create role**.
+   - In the **Select type of trusted entity** section, verify that the default **AWS service** is selected.
+   - In the **Choose the service that will use this role** section, scroll past the first reference to EC2 **(EC2 Allows EC2 instances to call AWS services on your behalf)** and choose **EC2** from within the field of services. This will open the Select your use case section further down the page.
+   - In the **Select your use case section**, choose **EC2 Role for AWS Systems Manager** to select it.
+   - Select **Next: Permissions**.
+2. Under **Attached permissions policy**, verify that **AmazonEC2RoleforSSM** is listed
+   - Select **Next: Tags** – Do not add any
+   - Select **Next: Review**
+3. In the **Review** section:
+   - Enter a **Role name**, such as **SM-Workshop-ManagedInstancesRole**.
+     - This info will be used later on in the lab when provisioning new instances
+   - Accept the default in the **Role description**.
+   - Choose **Create role**.
+
+
