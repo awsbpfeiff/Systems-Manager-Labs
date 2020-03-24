@@ -46,24 +46,21 @@ event notifications and the ability to audit usage.
 
 5.  In the **Approval rules** section:
 
-```{=html}
-<!-- -->
-```
-a.  Examine the options in the lists and ensure
+    a.  Examine the options in the lists and ensure
     that **Product**, **Classification**, and **Severity** have values
     of **All**.
 
-b.  Leave the **Auto approval delay** at its default of **0 days**.
+    b.  Leave the **Auto approval delay** at its default of **0 days**.
 
-c.  Change the value of **Compliance reporting -
+    c.  Change the value of **Compliance reporting -
     optional** to **Critical**.
 
-d.  Select **Add another rule**.
+    d.  Select **Add another rule**.
 
-e.  In the new rule, change the value of **Compliance reporting -
+    e.  In the new rule, change the value of **Compliance reporting -
     optional** to **Medium**.
 
-f.  Check the box under **Include non-security updates** to include all
+    f.  Check the box under **Include non-security updates** to include all
     Amazon Linux 2 updates when patching.
 
 If an approved patch is reported as missing, the option you select
