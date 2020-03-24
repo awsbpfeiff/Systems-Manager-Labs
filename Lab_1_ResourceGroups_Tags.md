@@ -42,7 +42,7 @@ will be used later on in the Patch Manager lab.
 
     d.  Select **View Group Resources**
 
-![](./media/image3.tiff){width="7.1in" height="1.4701388888888889in"}
+![](./media/image3.png)
 
 5.  In the group name enter **App**
 
