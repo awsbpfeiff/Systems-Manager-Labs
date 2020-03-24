@@ -36,8 +36,7 @@ Document against our application instances.
 10. You will be brought over to the Command Status of the Run Command
     session you created
 
-    a.  ![](./media/image4.png){width="5.694444444444445in"
-        height="3.1050984251968505in"}
+    a.  ![](./media/image4.png)
 
 11. Select one the instance IDs to drill down for details about the
     execution of the run command (stdout)
