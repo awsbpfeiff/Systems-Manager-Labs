@@ -125,3 +125,32 @@ When you register a task with a Maintenance Window, you specify the role you cre
    - Under the permissions tab, select **Attach Policy**.
    - On the **Attach Policy** page, search for **SSM-Workshop-MaintenanceWindowPassRole-Policy**, check the box next to it in the list, and select **Attach Policy**. You will be returned to the Summary page for the group.
 
+### Deploy Managed Instances
+
+In this section we will deploy 4 managed instances that we will work with throughout the lab.
+
+1.  Navigate to the [EC2 Console](https://console.aws.amazon.com/ec2)
+2.  Go to Instances
+3.  Launch Instance
+    - Amazon Linux 2 (64-bit)
+    - T2.micro
+    - Configure instance details
+    - Number of instances = 4
+    - Default VPC
+    - No preference on subnet
+    - Ensure auto-assign public IP is enabled
+    - IAM Role = **SM-Workshop-ManagedInstancesRole** (previously
+        created -- this is what allows instances to work with Systems
+        Manager)
+    - Default Storage
+    - Leave Tags as is -- We will create some later in the workshop
+    - Create a new Security Group -- Allow TCP 22 from anywhere
+    - Launch
+    - Select the Key Pair that you previously created
+
+4.  Go back to view instances and ensure that all 4 transition to an Instance State of running
+
+5.  Add tag
+    - key=**Name** and value=**App1/App2** for two of the four
+        instances
+    - key=**Name** and value=**Web1/Web2** for remaining two
