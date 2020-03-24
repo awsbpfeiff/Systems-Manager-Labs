@@ -25,12 +25,13 @@ This workshop is intended to provide a 200-300 level hands on experience with co
 
 1.	Browse to https://dashboard.eventengine.run 
 2.	Log in with the team hash that is provided to you – This will be your own account
-
-![Event Engine first image](https://github.com/billpfeiffer/Systems-Manager-Labs/blob/master/images/event_engine_1.png)
+![](./media/image1.png){width="3.47087489063867in"
+    height="1.3657403762029747in"}
 
 3.	Log into the console using the provided Login Link
 
-![Event Engine second image](https://github.com/billpfeiffer/Systems-Manager-Labs/blob/master/images/event_engine_2.png)
+![](./media/image2.png){width="3.52129593175853in"
+    height="1.695553368328959in"}
 	 
 Note: Once the event is complete, the account will be deleted.  
 
