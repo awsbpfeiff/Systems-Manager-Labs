@@ -1,115 +1,78 @@
-In this lab we will utilize Session Manager to connect to our App
-instances that we executed our Run command against. Session Manager is a
-tool that allows administrators Quickly and securely access your Amazon
-EC2 instances through an interactive one-click browser-based shell or
-through the AWS CLI without the need to open inbound ports, maintain
-bastion hosts, or manage SSH keys.
+Distributor is a capability that allows you to create custom packages
+for deployment to your Managed Instances. This could be helpful for
+application or tools deployment to your fleet. In this scenario we will
+deploy Powershell Core to a Linux Managed Instance.
 
-The IAM user or role must have Session Manager permissions as well as
-access to the target Managed Instances. When a version of SSM Agent that
-supports Session Manager starts on an instance, it creates a user
-account with root or administrator privileges called **ssm-user**. On
-Linux machines, the account is added to **/etc/sudoers**. On Windows
-machines, it is added to the **Administrators** group. Sessions are
-launched using these user accounts. On Windows machines you will be
-dropped into a Powershell terminal .
+**Reference Video =** <https://www.youtube.com/watch?v=AvQWkfgEQI8>
 
-1.  Navigate to [Systems Manager \> Instances & Nodes \> Session
-    Manager](https://console.aws.amazon.com/systems-manager/session-manager)
+1.  Need to make an S3 bucket to store the package in
 
-2.  Select **Start Session**
+    a.  Navigate to [S3](https://s3.console.aws.amazon.com/s3)
 
-3.  Select one of the **Web** servers we were just working on
+    b.  Select Create Bucket
 
-4.  Select **Start Session**
+    c.  Enter something like -- YOURFIRSTNAME10-sm
 
-5.  You will be directed to a new tab and presented with the shell of
-    the target **App** server
+    d.  Region = us-east (N. Virginia)
 
-6.  Switch back to the **Session Manager** tab and select refresh -- You
-    can now see the active session you've established
+    e.  Keep all defaults
 
-7.  Switch back to the tab with your active session and type following
-    commands
+    f.  Block all public access
 
-    a.  pwd
+    g.  Create Bucket
 
-        i.  It will result in **/usr/bin**
+2.  Download the following package locally:
 
-    b.  cd /
+    a.  <https://github.com/PowerShell/PowerShell/releases/download/v6.2.4/powershell-6.2.4-1.rhel.7.x86_64.rpm>
 
-    c.  cd app
+3.  Navigate to [Systems Manager \> Instances & Nodes \>
+    Distributor](https://console.aws.amazon.com/systems-manager/distributor)
 
-    d.  ls
+4.  Select **Create Package**
 
-        i.  You can see our text file "hello.txt" created by Run
-            Document above.
+5.  Select **Simple Package** (Advanced allows you to specify your own
+    install/uninstall scripts)
 
-    e.  systemctl status httpd -- apache is now running per our document
-        instructions
+6.  Enter -- **Posh-linux** for the name
 
-8.  Select **Terminate** at the top right of the session
+7.  Select the bucket you made in step 1
 
-9.  Go back to **Session Manager** and select refresh -- You can see the
-    session was ended and there are no running sessions
+8.  Enter a prefix of Linux
 
-10. Select **Session History**
+9.  Select **Add Software** under Upload
 
-11. You will see your previous session in a Terminating state -- We will
-    now configure session logging in CloudWatch Logs
+    a.  Select the rpm you downloaded in step 2
 
-12. Navigate to [Services \> Management & Governance \> CloudWatch \>
-    Log Groups](https://console.aws.amazon.com/cloudwatch)
+    b.  Set the **Target Platform** as amazon
 
-13. Select Actions \> Create Log Group
+    c.  Set Platform Version as \_any
 
-    a.  **NOTE:** Your role needs to have the appropriate [permissions
-        within
-        CloudWatch](a.%09https:/docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-logging-auditing.html#session-manager-logging-auditing-cloudwatch-logs)
+    d.  Set **Architecture** as x86\_64
 
-        i.  In this lab, the team role has
+    e.  If you expanded scripts you can see that distributor has already
+        provided the appropriate install / uninstallation scripts
 
-14. Enter **Systems-Manager-Workshop** as the name
+    f.  ![](./media/image7.png)
 
-15. Navigate back to Session Manager
+10. If you expand **Manifest** you will see the package you are
+    installing and the which installers to use depending on OS
 
-16. Configure **Preferences**
+    a.  ![](./media/image8.png)
 
-    a.  ![](./media/image5.png)
+11. Select **Create Package**
 
-17. Under Send Session output to CloudWatch Logs check the CloudWatch
-    logs box
+12. Your manifest file and package data will be uploaded to the
+    specified S3 bucket
 
-    a.  Uncheck Encrypt log data (can be enabled on the CloudWatch (CW)
-        Logs group)
+### Install Custom Package
 
-    b.  Select a log group name from the list =
-        **Systems-Manager-Workshop**
+Now that you have your custom package uploaded to your S3 bucket along
+with the manifest. Distributor gives you 2 quick options to deploy your
+package. You can either install on a schedule or install one time.
+Installing on a schedule automatically prepares a **State Manager
+Association** with the pre-defined **Document** of
+**AWS-ConfigureAWSPackage** and the name of your custom package as a
+parameter. Install one time does the same preparation but uses **Run
+Command**.
 
-    c.  Select **Save**
-
-18. Repeat steps 4-8
-
-19. Return to **Session Manager \> Session History** (This will be in a
-    terminating state for 1-3 minutes as the history is sent to
-    CloudWatch Logs for storage)
-
-    a.  Select refresh
-
-20. Once the status is **Terminated** you can select the output location
-    -- **CloudWatch Logs** (open in a new tab since it will redirect the
-    page that you're are currently on)
-
-21. In CloudWatch Logs you will see that inside your Systems Manager Log
-    Group a new Log Stream was created and utilized the ID of the
-    Session Manager session you just ended
-
-22. Expand the messages and you will see a full output of the terminal
-    session
-
-    a.  ![](./media/image6.png)
-
-23. This is powerful because now you have an easy interface to review
-    session logs and you can also create metric filters and alert of
-    specific log file entries (e.g. sudo) and send messages to an SNS
-    topic and the communications type
+![](./media/image9.png)
