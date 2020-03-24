@@ -25,13 +25,11 @@ This workshop is intended to provide a 200-300 level hands on experience with co
 
 1.	Browse to https://dashboard.eventengine.run 
 2.	Log in with the team hash that is provided to you – This will be your own account
-![](./media/image1.png){width="3.47087489063867in"
-    height="1.3657403762029747in"}
+![](./media/image1.png)
 
 3.	Log into the console using the provided Login Link
 
-![](./media/image2.png){width="3.52129593175853in"
-    height="1.695553368328959in"}
+![](./media/image2.png)
 	 
 Note: Once the event is complete, the account will be deleted.  
 
@@ -126,7 +124,7 @@ When you register a task with a Maintenance Window, you specify the role you cre
    - Under the permissions tab, select **Attach Policy**.
    - On the **Attach Policy** page, search for **SSM-Workshop-MaintenanceWindowPassRole-Policy**, check the box next to it in the list, and select **Attach Policy**. You will be returned to the Summary page for the group.
 
-### Deploy Managed Instances
+## Deploy Managed Instances
 
 In this section we will deploy 4 managed instances that we will work with throughout the lab.
 
