@@ -59,12 +59,8 @@ aws ssm start-automation-execution \--document-name
 
 d.  Select **Execute**
 
-    i.  ![](./media/image26.png){width="3.768561898512686in"
-        height="3.54629593175853in"}
+    i.  ![](./media/image26.png)
 
-```{=html}
-<!-- -->
-```
 15. You can see that multiple steps executed whereas with Run command we
     are doing singular executions of Documents
 
