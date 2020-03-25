@@ -98,24 +98,24 @@ look at what a live issue looks like in the dashboard.
 
     e.  Go back to **Related resource details** (top left)
 
-        i.  ![](./media/image32.png)
+![](./media/image32.png)
 
-        ii. **Resource description** shows you an output of the meta
+        i. **Resource description** shows you an output of the meta
             data that is displayed in the EC2 console when the instance
             is running
 
-        iii. Tags for the instance are shown
+        ii. Tags for the instance are shown
 
-        iv. Details from Config (might take some time to show up in
+        iii. Details from Config (might take some time to show up in
             Opsitems)
 
-        v.  CloudTrail is powerful as it shows you relevant events about
+        iv.  CloudTrail is powerful as it shows you relevant events about
             what happened (who stopped the instance -- I have seen this
             take a while to sort out besides being just a tail of the CT
             logs in that region -- e.g. tons of assume roles vs the
             related events
 
-        vi. CloudFormation stack resources shows the relevant stack data
+        v. CloudFormation stack resources shows the relevant stack data
 
 12. This concludes our OpsCenter learning -- One thing you can also due
     under OpsItems \> Configure Sources is change the Severity it is
