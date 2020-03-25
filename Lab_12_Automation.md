@@ -39,7 +39,7 @@ one maintenance window.
 
 13. Select **Next**
 
-    a.  ![](./media/image25.png)
+![](./media/image25.png)
 
 14. Fill out the details for **Execute automation document**
 
@@ -59,7 +59,7 @@ one maintenance window.
 
     d.  Select **Execute**
 
-        i. ![](./media/image26.png)
+![](./media/image26.png)
 
 15. You can see that multiple steps executed whereas with Run command we
     are doing singular executions of Documents
