@@ -76,8 +76,8 @@ look at what a live issue looks like in the dashboard.
 11. You will now see OpsItems by Source and age -- Grouped by source =
     EC2
 
-    a.  Under count select the number or go to OpsItem status summary
-        and select one of the open items
+        a.  Under count select the number or go to OpsItem status summary
+            and select one of the open items
 
 ![](./media/image31.png)
 
@@ -130,9 +130,8 @@ look at what a live issue looks like in the dashboard.
     easily respond to events with SSM automation runbooks (think Create
     a ServiceNow incident)
 
-Here is an existing tutorial on how to set this up here:
+Here is an additional tutorial:
 
 <https://www.youtube.com/watch?v=r6ilQdxLcqY>
 
-This walks you through the initial configuration of OpsCenter and
-triggering different events.
+This covers much of the same material as above but allows you to listen to the instructor and learn at your own pace.
