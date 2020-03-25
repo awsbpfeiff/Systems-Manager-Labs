@@ -13,14 +13,12 @@ look at what a live issue looks like in the dashboard.
 
 4.  Select **Enable OpsCenter**
 
-    a.  ![](./media/image27.tiff){width="6.330768810148731in"
-        height="1.4309864391951006in"}
+    a.  ![](./media/image27.png)
 
 5.  Several default Roles are used to automatically create several
     default SSM OpsItems Rules in CloudWatch Events
 
-    a.  ![](./media/image28.png){width="5.830768810148731in"
-        height="2.379870953630796in"}
+    a.  ![](./media/image28.png)
 
     b.  Permissions -
         <https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-setup-permissions.html>
@@ -55,8 +53,7 @@ look at what a live issue looks like in the dashboard.
 
     m.  Select **Create Rule**
 
-    n.  ![](./media/image29.png){width="6.461538713910761in"
-        height="3.524647856517935in"}
+    n.  ![](./media/image29.png)
 
 7.  Navigate Back to [Systems Manager \> Operations Management \>
     OpsCenter \> OpsItems \> Configure
@@ -64,8 +61,7 @@ look at what a live issue looks like in the dashboard.
 
     a.  You will now see the new CW rule we created
 
-    b.  ![](./media/image30.png){width="3.884615048118985in"
-        height="1.953325678040245in"}
+    b.  ![](./media/image30.png)
 
 8.  Navigate to
     [EC2](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=tag:Name)
@@ -103,8 +99,7 @@ look at what a live issue looks like in the dashboard.
 
     e.  Go back to **Related resource details** (top left)
 
-        i.  ![](./media/image32.png){width="4.3769225721784775in"
-            height="1.6691721347331583in"}
+        i.  ![](./media/image32.png)
 
         ii. **Resource description** shows you an output of the meta
             data that is displayed in the EC2 console when the instance
@@ -128,8 +123,7 @@ look at what a live issue looks like in the dashboard.
     alerted as (think of the compliance dashboard we did before),
     Category of the event, and the state
 
-    a.  ![](./media/image33.png){width="6.169231189851269in"
-        height="1.153713910761155in"}
+    a.  ![](./media/image33.png)
 
 13. I hope this shows you the power of OpsCenter as sometimes it is hard
     to see the value in the tooling -- This is complimentary to other
