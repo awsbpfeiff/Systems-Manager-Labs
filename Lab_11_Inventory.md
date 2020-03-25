@@ -15,17 +15,17 @@ single view of inventory data across AWS accounts or regions.
 
 3.  Inventory Association Configuration Details
 
-    a.  Name = Keep default
+    a.  **Name =** Keep default
 
-    b.  Targets = Selecting all managed instances in this account (you
+    b.  **Targets =** Selecting all managed instances in this account (you
         can target this association if you don't want all instances
         included)
 
-    c.  Schedule = Keep default (30 minutes)
+    c.  **Schedule =** Keep default (30 minutes)
 
-    d.  Parameters = Keep all defaults
+    d.  **Parameters =** Keep all defaults
 
-    e.  Advanced = Leave unchecked we will configure this separately
+    e.  **Advanced =** Leave unchecked we will configure this separately
 
 4.  Select **Setup Inventory**
 
@@ -37,8 +37,7 @@ single view of inventory data across AWS accounts or regions.
 
     a.  You can now see data is being populated into the Dashboard
 
-    b.  ![](./media/image22.png){width="2.741428258967629in"
-        height="2.5416666666666665in"}
+![](./media/image22.png)
 
 7.  Select **Detailed View** tab on the **Inventory** landing page
 
@@ -68,65 +67,67 @@ single view of inventory data across AWS accounts or regions.
 
     k.  Enter in your Bucket Name and select save
 
+```
 {
 
-\"Version\": \"2012-10-17\",
+    "Version": "2012-10-17",
 
-\"Statement\": \[
+    "Statement": [
 
-{
+        {
 
-\"Sid\": \"SSMBucketPermissionsCheck\",
+            "Sid": "SSMBucketPermissionsCheck",
 
-\"Effect\": \"Allow\",
+            "Effect": "Allow",
 
-\"Principal\": {
+            "Principal": {
 
-\"Service\": \"ssm.amazonaws.com\"
+                "Service": "ssm.amazonaws.com"
 
-},
+            },
 
-\"Action\": \"s3:GetBucketAcl\",
+            "Action": "s3:GetBucketAcl",
 
-\"Resource\": \"arn:aws:s3:::ENTERYOURBUCKET\"
+            "Resource": "arn:aws:s3:::ENTERYOURBUCKET"
 
-},
+        },
 
-{
+        {
 
-\"Sid\": \" SSMBucketDelivery\",
+            "Sid": " SSMBucketDelivery",
 
-\"Effect\": \"Allow\",
+            "Effect": "Allow",
 
-\"Principal\": {
+            "Principal": {
 
-\"Service\": \"ssm.amazonaws.com\"
+                "Service": "ssm.amazonaws.com"
 
-},
+            },
 
-\"Action\": \"s3:PutObject\",
+            "Action": "s3:PutObject",
 
-\"Resource\": \[
+            "Resource": [
 
-\"arn:aws:s3:::ENTERYOURBUCKET/inventory/\*\"
+                "arn:aws:s3:::ENTERYOURBUCKET/inventory/*"
 
-\],
+            ],
 
-\"Condition\": {
+            "Condition": {
 
-\"StringEquals\": {
+                "StringEquals": {
 
-\"s3:x-amz-acl\": \"bucket-owner-full-control\"
+                    "s3:x-amz-acl": "bucket-owner-full-control"
+
+                }
+
+            }
+
+        }
+
+    ]
 
 }
-
-}
-
-}
-
-\]
-
-}
+```
 
 9.  Navigate back to [Inventory \> Resource Data
     Sync](https://console.aws.amazon.com/systems-manager/managed-instances/resource-data-sync)
@@ -149,8 +150,7 @@ single view of inventory data across AWS accounts or regions.
 
 12. Switch back to your bucket and you can now see the data being synced
 
-    a.  ![](./media/image23.png){width="2.072684820647419in"
-        height="2.8367443132108487in"}
+    a.  ![](./media/image23.png)
 
     b.  Now we have a clean data structure for inventory data
 
@@ -160,5 +160,4 @@ single view of inventory data across AWS accounts or regions.
     d.  Tutorial here =
         <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html>
 
-![](./media/image24.png){width="3.704346019247594in"
-height="2.4583333333333335in"}
+![](./media/image24.png)
