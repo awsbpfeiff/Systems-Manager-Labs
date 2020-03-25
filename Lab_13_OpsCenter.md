@@ -13,14 +13,14 @@ look at what a live issue looks like in the dashboard.
 
 4.  Select **Enable OpsCenter**
 
-    a.  ![](./media/image27.png)
+![](./media/image27.png)
 
 5.  Several default Roles are used to automatically create several
     default SSM OpsItems Rules in CloudWatch Events
 
-    a.  ![](./media/image28.png)
+![](./media/image28.png)
 
-    b.  Permissions -
+    a.  Permissions -
         <https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-setup-permissions.html>
 
 6.  Let's create an OpsItem / Rule so you can see the power of OpsCenter
@@ -61,7 +61,7 @@ look at what a live issue looks like in the dashboard.
 
     a.  You will now see the new CW rule we created
 
-    b.  ![](./media/image30.png)
+![](./media/image30.png)
 
 8.  Navigate to
     [EC2](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=tag:Name)
@@ -79,12 +79,12 @@ look at what a live issue looks like in the dashboard.
     a.  Under count select the number or go to OpsItem status summary
         and select one of the open items
 
-    b.  ![](./media/image31.png)
+![](./media/image31.png)
 
-    c.  You will now see our event -- Select the ID (e.g.
+    b.  You will now see our event -- Select the ID (e.g.
         oi-\#\#\#\#\#\#\#\#\#\#\#\#)
 
-    d.  You will see a ton of data regarding the event (aggregate
+    c.  You will see a ton of data regarding the event (aggregate
         sources)
 
         i.  Related resources shows the ARN of the instance your
@@ -96,7 +96,7 @@ look at what a live issue looks like in the dashboard.
         iii. Operational Data will show you the instance ID, the state,
              and the ClouwdWatch Event that generated it
 
-    e.  Go back to **Related resource details** (top left)
+    d.  Go back to **Related resource details** (top left)
 
 ![](./media/image32.png)
 
@@ -122,7 +122,7 @@ look at what a live issue looks like in the dashboard.
     alerted as (think of the compliance dashboard we did before),
     Category of the event, and the state
 
-    a.  ![](./media/image33.png)
+![](./media/image33.png)
 
 13. I hope this shows you the power of OpsCenter as sometimes it is hard
     to see the value in the tooling -- This is complimentary to other
