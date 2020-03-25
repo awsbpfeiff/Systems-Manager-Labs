@@ -58,8 +58,7 @@ calendar state from AWS CLI.
     changes and also one where the correct time zone is configured and
     the calendar is open for the specified period
 
-    a.  ![](./media/image36.tiff){width="6.592307524059493in"
-        height="1.7228718285214348in"}
+    a.  ![](./media/image36.png)
 
 14. One thing to note is that your IAM role / user will need to have the
     appropriate permissions added to the assigned policy to get the
