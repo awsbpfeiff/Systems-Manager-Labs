@@ -33,8 +33,7 @@ calendar state from AWS CLI.
         tool / use for regular events like application releases or
         change windows
 
-    b.  ![](./media/image34.png){width="3.61885498687664in"
-        height="3.5923086176727907in"}
+![](./media/image34.png)
 
 9.  The event now shows up on your calendar in light blue on the day you
     specified
@@ -45,8 +44,7 @@ calendar state from AWS CLI.
     the content that you would add to your Automation Documents to check
     the calendar if the change is allowed or blocked
 
-    a.  ![](./media/image35.tiff){width="5.392307524059492in"
-        height="3.351732283464567in"}
+![](./media/image35.png)
 
 12. You will now take this information and you can query the calendar
     from the CLI
