@@ -57,9 +57,9 @@ aws ssm start-automation-execution \--document-name
 \'{\"InstanceId\":\[\"i-0fefbee5812b97d3a\"\],\"InstanceType\":\[\"t2.small\"\]}\'
 \--region us-east-1
 
-d.  Select **Execute**
+    d.  Select **Execute**
 
-    i.  ![](./media/image26.png)
+         ![](./media/image26.png)
 
 15. You can see that multiple steps executed whereas with Run command we
     are doing singular executions of Documents
