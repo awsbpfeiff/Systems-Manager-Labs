@@ -50,16 +50,16 @@ one maintenance window.
 
         i.  <https://aws.amazon.com/ec2/instance-types/>
 
-    c.  You can see that the CLI output is squeezed into a one line
+    c.  You can see that the CLI output is squeezed into a one liner
 
-aws ssm start-automation-execution \--document-name
-\"AWS-ResizeInstance\" \--document-version \"\\\$DEFAULT\" \--parameters
-\'{\"InstanceId\":\[\"i-0fefbee5812b97d3a\"\],\"InstanceType\":\[\"t2.small\"\]}\'
-\--region us-east-1
+    aws ssm start-automation-execution \--document-name
+    \"AWS-ResizeInstance\" \--document-version \"\\\$DEFAULT\" \--parameters
+    \'{\"InstanceId\":\[\"i-0fefbee5812b97d3a\"\],\"InstanceType\":\[\"t2.small\"\]}\'
+    \--region us-east-1
 
     d.  Select **Execute**
 
-         ![](./media/image26.png)
+        i. ![](./media/image26.png)
 
 15. You can see that multiple steps executed whereas with Run command we
     are doing singular executions of Documents
