@@ -1,6 +1,3 @@
-Automation
-----------
-
 The Automation capability allows you to execute multi-step, complex IT
 tasks. In this lab we are going to utilize the pre-defined Automation
 Document called AWS-ReszieInstance. I felt this was a good example to
@@ -42,8 +39,7 @@ one maintenance window.
 
 13. Select **Next**
 
-    a.  ![](./media/image25.png){width="3.903166010498688in"
-        height="2.6849540682414696in"}
+    a.  ![](./media/image25.png)
 
 14. Fill out the details for **Execute automation document**
 

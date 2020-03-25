@@ -1,6 +1,3 @@
-Hybrid Activations
-------------------
-
 This lab is a work in progress.
 
 <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html>
