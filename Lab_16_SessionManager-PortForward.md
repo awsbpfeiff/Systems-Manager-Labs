@@ -3,8 +3,7 @@ folks new to **Systems Manager** is that it doesn't address RDP
 sessions. Port Forwarding utilizes SSH tunneling to establish a secure
 tunnel between localhost and a remote service.
 
-![](./media/image39.png){width="4.289814085739283in"
-height="1.787422353455818in"}
+![](./media/image39.png)
 
 This command tells SSH to connect to instance as user ec2-user, open
 **port 9999** on my local laptop, and forward everything from there
@@ -74,16 +73,14 @@ Forwarding with Session Manager**.
 
 3.  You will see that your session has started
 
-    a.  ![](./media/image40.png){width="3.215740376202975in"
-        height="0.7375699912510936in"}
+![](./media/image40.png)
 
 4.  Navigate to [Systems Manager \> Instances & Nodes \> Session
     Manager](https://console.aws.amazon.com/systems-manager/session-manager/sessions)
 
 5.  You will now see your session open inside the console
 
-    a.  ![](./media/image41.png){width="4.947222222222222in"
-        height="0.9392169728783902in"}
+![](./media/image41.png)
 
 6.  Navigate back EC2 and get your password
 
@@ -97,8 +94,7 @@ Forwarding with Session Manager**.
 
 8.  Connect to localhost:56789
 
-    a.  ![](./media/image42.png){width="2.801971784776903in"
-        height="1.5092585301837271in"}
+![](./media/image42.png)
 
 9.  Log in with your Administrator user and password
 
