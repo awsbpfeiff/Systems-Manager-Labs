@@ -49,7 +49,7 @@ calendar state from AWS CLI.
 12. You will now take this information and you can query the calendar
     from the CLI
 
-    a.  aws ssm get-calendar-state \--calendar-names
+        aws ssm get-calendar-state \--calendar-names
         arn:aws:ssm:us-east-1:YOURACCOUNTNUMBER:document/YOURCALENDARNAME
         \--region us-east-1
 
@@ -58,10 +58,10 @@ calendar state from AWS CLI.
     changes and also one where the correct time zone is configured and
     the calendar is open for the specified period
 
-    a.  ![](./media/image36.png)
+    ![](./media/image36.png)
 
 14. One thing to note is that your IAM role / user will need to have the
     appropriate permissions added to the assigned policy to get the
     calendar state
 
-    a.  **ssm:GetCalendarState**
+    **ssm:GetCalendarState**
