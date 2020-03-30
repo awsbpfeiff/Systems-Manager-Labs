@@ -9,15 +9,13 @@ multi-region / multi-account view of your environment.
 3.  For tags for reporting -- remove the cloudformation default key (we
     can configure these later on) and select **Enable Explorer**
 
-    a.  ![](./media/image37.tiff){width="5.571071741032371in"
-        height="2.3692311898512686in"}
+![](./media/image37.png)
 
 4.  You are presented with an option to configure resource data sync --
     Since we are in the lab and using a single account / single region
     this won't be necessary but worth visualizing
 
-    a.  ![](./media/image38.png){width="6.719466316710411in"
-        height="3.823076334208224in"}
+![](./media/image38.png)
 
     b.  This makes it easy to select:
 
