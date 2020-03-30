@@ -17,7 +17,7 @@ multi-region / multi-account view of your environment.
 
 ![](./media/image38.png)
 
-    b.  This makes it easy to select:
+    a.  This makes it easy to select:
 
         i.  Select regions you are active in
 
