@@ -31,57 +31,31 @@ Manager.
     c.  **Document Type =** Command document as we will use Run command
         to install the package
 
-    d.  Copy the below snippet into the contents
+    d.  Copy the below snippet into the contents:
 
-> **{**
->
-> **\"schemaVersion\": \"2.2\",**
->
-> **\"description\": \"Command Document Example JSON Template\",**
->
-> **\"parameters\": {**
->
-> **\"Message\": {**
->
-> **\"type\": \"String\",**
->
-> **\"description\": \"Magic\",**
->
-> **\"default\": \"Installing our amazing app\"**
->
-> **}**
->
-> **},**
->
-> **\"mainSteps\": \[**
->
-> **{**
->
-> **\"action\": \"aws:runShellScript\",**
->
-> **\"name\": \"Magic\",**
->
-> **\"inputs\": {**
->
-> **\"runCommand\": \[**
->
-> **\"sudo yum install httpd -y\",**
->
-> **\"mkdir /app\",**
->
-> **\"touch /app/hello.txt\",**
->
-> **\"sudo systemctl start httpd\"**
->
-> **\]**
->
-> **}**
->
-> **}**
->
-> **\]**
->
-> **}**
+    {
+    	"schemaVersion": "2.2",
+    	"description": "Command Document Example JSON Template",
+    	"parameters": {
+    		"Message": {
+    			"type": "String",
+    			"description": "Magic",
+    			"default": "Installing our amazing app"
+    		}
+    	},
+    	"mainSteps": [{
+    		"action": "aws:runShellScript",
+    		"name": "Magic",
+    		"inputs": {
+    			"runCommand": [
+    				"sudo yum install httpd -y",
+    				"mkdir /app",
+    				"touch /app/hello.txt",
+    				"sudo systemctl start httpd"
+    			]
+    		}
+    	}]
+    }
 
 5.  Select **Create Document**
 
