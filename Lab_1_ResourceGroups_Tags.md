@@ -16,7 +16,8 @@ will be used later on in the Patch Manager lab.
 
     c.  Select **Search resources**
 
-    d.  Select 2 of the 4 instances \> Select **Manage Tags of selected
+    d.  Select the 2 instances with Key:Name of Value:App1 & App2 from the
+        4 instances \> Select **Manage Tags of selected
         resources**
 
     e.  Add tag
