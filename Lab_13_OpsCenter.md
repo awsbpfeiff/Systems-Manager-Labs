@@ -94,7 +94,7 @@ look at what a live issue looks like in the dashboard.
             event via runbook as the event occurs
 
         iii. Operational Data will show you the instance ID, the state,
-             and the ClouwdWatch Event that generated it
+             and the CloudWatch Event that generated it
 
     d.  Go back to **Related resource details** (top left)
 
