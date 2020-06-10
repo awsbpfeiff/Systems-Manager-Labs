@@ -58,13 +58,15 @@ a basic exercise to gather the secret you made previously.
 
 1.  Navigate back to <https://dashboard.eventengine.run>
 
-2. Pull up the credentials from Dashboard
+2. Pull up the credentials from the Event Engine Dashboard
 
-![](./media/image18.png){width="1.4572801837270342in"
-        height="1.2824070428696412in"}Select **AWS Console**
+![](./media/image18.png) 
 
-![](./media/image2.png){width="3.52129593175853in"
-        height="1.695553368328959in"}Gather your access keys
+Select **AWS Console**
+
+![](./media/image2.png)
+
+Gather your access keys
 
 3. Install AWS CLI -
     <https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html>
@@ -78,16 +80,14 @@ a basic exercise to gather the secret you made previously.
 
 6. Command: aws ssm get-parameter \--name "YOURNAME-secret1"
 
- ![](./media/image19.png){width="3.5074070428696413in"
-        height="1.1049846894138233in"}
+ ![](./media/image19.png)
 
 7. Now we add the with decryption flag
 
 8. Command: aws ssm get-parameter \--name \"bills-secret1\"
     \--with-decryption
 
-![](./media/image20.png){width="3.52129593175853in"
-        height="1.0986832895888015in"}
+![](./media/image20.png)
 
 9. You can see that the value is now in plain text
 
@@ -97,5 +97,4 @@ a basic exercise to gather the secret you made previously.
 11. Command: aws ssm get-parameter \--name \"bills-secret1\"
     \--with-decryption \| jq -r \".Parameter.Value\"
 
-![](./media/image21.png){width="6.725in"
-        height="0.2927055993000875in"}
+![](./media/image21.png)
