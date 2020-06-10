@@ -56,7 +56,7 @@ A configuration profile includes the following information.
 First, we will create configuration object as a parameter in Parameter STORE_USER_REQUEST_INSERT_SQL
 1. Open the AWS Systems Manager console at https://console.aws.amazon.com/systems-manager/.
 
-2. In the navigation pane choose **Parameter Store**.
+2. In the navigation pane choose **Parameter Store**. Select **Create parameter**
 
 3. For **Name**, enter **/demoapp/devenv/user_accesss_configration**.
 
@@ -84,28 +84,28 @@ First, we will create configuration object as a parameter in Parameter STORE_USE
 Next, we will create the configuration profile using the above configuration object in AppConfig.
 
 
-1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/appconfig/](https://console.aws.amazon.com/systems-manager/appconfig/)\.
+9. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/appconfig/](https://console.aws.amazon.com/systems-manager/appconfig/)\.
 
-1. On the **Applications** tab, choose the application you created in above section and then choose the **Configuration profiles** tab\.
+10. On the **Applications** tab, from **AppConfig**, choose the application you created in above section and then choose the **Configuration profiles** tab\.
 
-1. Choose **Create configuration profile**\.
+11. Choose **Create configuration profile**\.
 
-1. For **Name**, enter a name for the configuration profile\.
+12. For **Name**, enter a name for the configuration profile\.
 
-1. For **Description**, enter information about the configuration profile\.
+13. For **Description**, enter information about the configuration profile\.
 
-1. In the **Tags** section, enter a key and an optional value\. You can specify a maximum of 50 tags for a resource\.
+14. In the **Tags** section, enter a key and an optional value\. You can specify a maximum of 50 tags for a resource\.
 
-1. On the **Select configuration source** page, choose **AWS Systems Manager parameter**\.  
+15. On the **Select configuration source** page, choose **AWS Systems Manager parameter**\.  
 ![\[Choose an AWS AppConfig configuration source\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/appconfig-profile-1.png) then complete the following steps\.
 
-   1. In the **Parameter** section, choose the parameter created above. Click **Next**.
+   16. In the **Parameter** section, choose the parameter created above. Click **Next**.
 
-   1. In **Service role** section, select **New service role** and keep the default name in the **Role name** field.
+   17. In **Service role** section, select **New service role** and keep the default name in the **Role name** field.
 
-   1. Skip the **Validator** section. **Note** SSM parameters do not require a validation method, but we recommend that you create a validation check for new or updated SSM parameter configurations by using AWS Lambda\.
+   18. Skip the **Validator** section. **Note** SSM parameters do not require a validation method, but we recommend that you create a validation check for new or updated SSM parameter configurations by using AWS Lambda\.
 
-   1. Click **Create configuration profile**\.This operation may take up to thirty seconds. Please be patient while it completes.
+   19. Click **Create configuration profile**\.This operation may take up to thirty seconds. Please be patient while it completes.
 
 ### Step 4:  Create a deployment strategy
 
@@ -157,6 +157,7 @@ Next, we will create the configuration profile using the above configuration obj
 ### Step 6: Receiving a configuration
 
 In this section, we will use **GetConfiguration** API that clients will need to use to pull configuration from AppConfig.
+**Note**: You may need to upgrade the AWS CLI to the latest version
 
 1. Execute following AWS CLI command, noting the details from the above sections :
 
@@ -185,7 +186,7 @@ aws appconfig get-configuration --application <APPLICATION_NAME_IN_APPCONFIG> --
     ]
 }
 
-4. Navigate to AWS Systems Manager -> AppConfig -> <Name of your application> -> <Name of your configuration profile>. It will reflect two versions of the configuration object from the parameter store. Select the latest version, click Deployment on the top right and follow the steps mentioned above on deploying a configuration.
+4. Navigate to AWS Systems Manager -> AppConfig -> <Name of your application> -> <Name of your configuration profile>. It will reflect two versions of the configuration object from the parameter store. Select the latest version, click **Start Deployment** on the top right and follow the steps mentioned above on deploying a configuration.
 
 
 5. When the deployment completes, execute **GetConfiguration** command, as stated in step 1 and check the output of the file. It should reflect second version of the configuration.
