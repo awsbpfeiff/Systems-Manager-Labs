@@ -133,17 +133,11 @@ perform during the window:
 
 2.  On the **Register Run command task** page:
 
-```{=html}
-<!-- -->
-```
-a.  In the **Name** field, enter a name for the task, such
-    as **PatchTestAppServers**.
+    a.  In the **Name** field, enter a name for the task, such
+        as **PatchTestAppServers**.
 
-b.  (Optional) Enter a description in the **Description** field.
+    b.  (Optional) Enter a description in the **Description** field.
 
-```{=html}
-<!-- -->
-```
 3.  In the **Command document** section:
 
     a.  Select the search icon, select Platform Types, and then
