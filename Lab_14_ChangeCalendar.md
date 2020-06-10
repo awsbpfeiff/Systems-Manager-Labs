@@ -9,12 +9,12 @@ calendar state from AWS CLI.
 
 2.  Select **Create change calendar**
 
-3.  Enter a name -- YOURNAME-cal-closed
+3.  Enter a name -- Ex. YOURNAME-cal-closed
 
     a.  Description is optional but would make sense to add additional
         meta data especially in complex environments
 
-4.  Calendar type = **Closed by Default**
+4.  Calendar type: **Closed by Default**
 
 5.  Select the Calendar name to view the details of the calendar (or
     highlight the radio button and select edit)
@@ -23,7 +23,7 @@ calendar state from AWS CLI.
     the current month and day highlighted with a blue dot and Select
     **Create Event** (top right corner)
 
-7.  Name = yourname-NOCHANGES
+7.  Name: yourname-NOCHANGES
 
 8.  Set the start date as the current day and time and make it last for
     2 hours -- Ensure that the calendar time zone is set to your current

@@ -15,17 +15,17 @@ single view of inventory data across AWS accounts or regions.
 
 3.  Inventory Association Configuration Details
 
-    a.  **Name =** Keep default
+    a.  **Name:** Keep default
 
-    b.  **Targets =** Selecting all managed instances in this account (you
+    b.  **Targets:** Selecting all managed instances in this account (you
         can target this association if you don't want all instances
         included)
 
-    c.  **Schedule =** Keep default (30 minutes)
+    c.  **Schedule:** Keep default (30 minutes)
 
-    d.  **Parameters =** Keep all defaults
+    d.  **Parameters:** Keep all defaults
 
-    e.  **Advanced =** Leave unchecked we will configure this separately
+    e.  **Advanced:** Leave unchecked we will configure this separately
 
 4.  Select **Setup Inventory**
 
@@ -51,9 +51,9 @@ single view of inventory data across AWS accounts or regions.
 
     c.  Select **Create Bucket**
 
-    d.  Enter something like -- YOURFIRSTNAME10-sm
+    d.  Enter: YOURFIRSTNAME10-sm
 
-    e.  **Region =** us-east (N. Virginia)
+    e.  **Region:** us-east (N. Virginia)
 
     f.  Keep all defaults
 
@@ -136,15 +136,15 @@ single view of inventory data across AWS accounts or regions.
 
 11. Configuration details
 
-    a.  Sync name = YOURNAME-inventory-s3-sync
+    a.  **Sync name:** YOURNAME-inventory-s3-sync
 
-    b.  Bucket name = the name of the bucket your created previously
+    b.  **Bucket name:** the name of the bucket your created previously
 
-    c.  Bucket prefix = inventory
+    c.  **Bucket prefix:** inventory
 
-    d.  Bucket region = us-east-1
+    d.  **Bucket region:** us-east-1
 
-    e.  KMS key = leave blank for the purpose of the demo
+    e.  **KMS key:** leave blank for the purpose of the demo
 
     f.  Select **Create**
 
@@ -157,7 +157,7 @@ single view of inventory data across AWS accounts or regions.
     c.  From here you can utilize Athena and Quicksight to gain deeper
         insight about the inventory data gathered
 
-    d.  Tutorial here =
+    d.  **Tutorial:**
         <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html>
 
 ![](./media/image24.png)

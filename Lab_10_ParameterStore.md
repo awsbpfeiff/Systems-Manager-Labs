@@ -8,31 +8,31 @@ files.
 
 2. Fill out the data for adding your secret
 
-3. **Name** **=** YOURNAME-secret1
+3. **Name:** YOURNAME-secret1
 
-4. **Description** **=** blank
+4. **Description:** blank
 
-5. **Tier** **=** Standard
+5. **Tier:** Standard
 
-6. **Type** **=** SecureString
+6. **Type:** SecureString
 
-7. **KMS Key Source** **=** My current account (uses the default KMS
+7. **KMS Key Source:** My current account (uses the default KMS
     key or specify a CMK of your choice)
 
-8. **KMS Key ID** **=** alias/aws/ssm (AWS managed key for Systems
+8. **KMS Key ID:** alias/aws/ssm (AWS managed key for Systems
     Manager)
 
-9. **Value =** This is your secret data whether that is configuration
+9. **Value:** This is your secret data whether that is configuration
     data, passwords, connection strings, etc...
 
-10. **Tags =** your choice -- this is ideal to organize your secrets so
+10. **Tags:** your choice -- this is ideal to organize your secrets so
     you do not get lost --
 
-    a.  Key=Team / Value=Operations
+    a.  Key: Team / Value: Operations
 
-    b.  Key=Application / Value=RevenueGen1
+    b.  Key: Application / Value: RevenueGen1
 
-    c.  Key=Owner / YOURNAME
+    c.  Key: Owner / YOURNAME
 
 11. Select **Create Parameter**
 
@@ -70,20 +70,20 @@ a basic exercise to gather the secret you made previously.
     <https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html>
 
 4. Once installed run aws configure and use the access keys above --
-    region = us-east-1
+    region: us-east-1
 
 5. We made our secret a SecureString -- When we run aws ssm
     get-parameter without the decryption flag you can see the value of
     the parameter is obscured
 
-6. Command = aws ssm get-parameter \--name "YOURNAME-secret1"
+6. Command: aws ssm get-parameter \--name "YOURNAME-secret1"
 
  ![](./media/image19.png){width="3.5074070428696413in"
         height="1.1049846894138233in"}
 
 7. Now we add the with decryption flag
 
-8. Command = aws ssm get-parameter \--name \"bills-secret1\"
+8. Command: aws ssm get-parameter \--name \"bills-secret1\"
     \--with-decryption
 
 ![](./media/image20.png){width="3.52129593175853in"
@@ -94,7 +94,7 @@ a basic exercise to gather the secret you made previously.
 10. Then you would parse the JSON output with something like jq to be
     able to get the raw value
 
-11. Command = aws ssm get-parameter \--name \"bills-secret1\"
+11. Command: aws ssm get-parameter \--name \"bills-secret1\"
     \--with-decryption \| jq -r \".Parameter.Value\"
 
 ![](./media/image21.png){width="6.725in"

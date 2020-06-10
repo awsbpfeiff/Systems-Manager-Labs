@@ -14,29 +14,29 @@ Instances.**
 
 2. Select Create Association (top right)
 
-3. Name = UpdateSSMAgent
+3. **Name:** UpdateSSMAgent
 
 4. Search for **AWS-UpdateSSMAgent** and select that as the Document
     for the Association
 
 5. Parameters leave as the Default (false)
 
-6. Targets = Selecting all managed instances in this region under this
+6. **Targets:** Selecting all managed instances in this region under this
     account
 
-7. Specify schedule = On schedule (can run one for initial
+7. **Specify schedule:** On schedule (can run one for initial
     provisioning) / every 30 mins (for the lab)
 
 8. If this was a real world scenario you would like check weekly for a
     new release
 
-9. Compliance = High
+9. **Compliance:** High
 
 10. This is specifying how you like this ranked within the Compliance
     dashboard -- if the agent is not updated you will see a High
     severity non-compliance alert
 
-11. Rate Control = Target 1 and Error 1
+11. **Rate Contro:** Target 1 and Error 1
 
 12. Leave writing output to S3 bucket unchecked for now
 

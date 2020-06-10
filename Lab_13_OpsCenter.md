@@ -31,25 +31,25 @@ look at what a live issue looks like in the dashboard.
 
     b.  Select **Create Rule**
 
-    c.  **Event Source =** Event Pattern
+    c.  **Event Source:** Event Pattern
 
-    d.  **Service Name =** EC2
+    d.  **Service Name:** EC2
 
-    e.  **Event Type =** EC2 Instance State-change Notification
+    e.  **Event Type:** EC2 Instance State-change Notification
 
-    f.  **Specific States =** Terminated
+    f.  **Specific States:** Terminated
 
     g.  Any instance
 
-    h.  **Target =** SSM opsItem
+    h.  **Target:** SSM opsItem
 
-    i.  **Role =** Allow create new role
+    i.  **Role:** Allow create new role
 
     j.  Select **Configure Details**
 
-    k.  **Name =** YOURNAME-test-ec2-terminated
+    k.  **Name:** YOURNAME-test-ec2-terminated
 
-    l.  **State =** Enabled
+    l.  **State:** Enabled
 
     m.  Select **Create Rule**
 

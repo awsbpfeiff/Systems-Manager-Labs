@@ -116,17 +116,17 @@ any value (for example, web servers) but the key must be Patch Group.
 
 5.  Add Tag
 
-6.  Key = Patch Group
+6.  **Key:** Patch Group
 
-7.  Value = App
+7.  **Value:** App
 
 8.  Select instances with Name Web1 and Web2
 
 9.  Add Tag
 
-10. Key = Patch Group
+10. **Key:** Patch Group
 
-11. Value = Web
+11. **Value:** Web
 
 12. Navigate back to [Systems Manager \> Patch Manager \> Patch
     Baselines](https://console.aws.amazon.com/systems-manager/patch-manager/baselines)

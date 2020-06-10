@@ -10,9 +10,9 @@ will be used later on in the Patch Manager lab.
 3.  From navigation panel on the left, under **Tagging** select **Tag
     Editor**
 
-    a.  Region = us-east-1
+    a.  **Region:** us-east-1
 
-    b.  Resource types = AWS::EC2::Instance
+    b.  **Resource types:** AWS::EC2::Instance
 
     c.  Select **Search resources**
 
@@ -22,9 +22,9 @@ will be used later on in the Patch Manager lab.
 
     e.  Add tag
 
-        i.  Key = Patch Group
+        i.  **Key:** Patch Group
 
-        ii. Value = App
+        ii. **Value:** App
 
     f.  Select **Review and apply tag changes**
 
@@ -37,9 +37,9 @@ will be used later on in the Patch Manager lab.
 
     c.  Under Tags enter
 
-        i.  Key = Patch Group
+        i.  **Key:** Patch Group
 
-        ii. Value = App
+        ii. **Value:** App
 
     d.  Select **View Group Resources**
 

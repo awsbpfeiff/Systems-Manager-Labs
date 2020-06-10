@@ -42,10 +42,10 @@ dropped into a Powershell terminal .
 
     d.  ls
 
-        i.  You can see our text file "hello.txt" created by Run
+        i.  You can see our text file "hello.txt" created by the Run Command
             Document above.
 
-    e.  systemctl status httpd -- apache is now running per our document
+    e.  systemctl status httpd -- Apache is now running per our document
         instructions
 
 8.  Select **Terminate** at the top right of the session

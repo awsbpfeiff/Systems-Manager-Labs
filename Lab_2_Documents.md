@@ -9,30 +9,31 @@ Manager.
 2.  Inside here you will be able to see all documents available to your
     account in the region you are presently logged into
 
-    a.  Owned by Amazon = Managed Documents published and maintained by
+    a.  **Owned by Amazon:** Managed Documents published and maintained by
         AWS
 
-    b.  Owned by me = Custom Documents your organization has created
+    b.  **Owned by me:** Custom Documents your organization has created
 
-    c.  Shared with me = Documents that you have been granted access to
+    c.  **Shared with me:** Documents that you have been granted access to
         within that region
 
-    d.  All documents = All of the above
+    d.  **All documents:** All of the above
 
 3.  Navigate to Owned by me
 
 4.  Select **Create Command or Session**
 
-    a.  **Name =** org-install-app
+    a.  **Name:** org-install-app
 
-    b.  **Target Type =** Leave blank for now -- This allows you to
+    b.  **Target Type:** Leave blank for now -- This allows you to
         narrow down the resources the doc can run against
 
-    c.  **Document Type =** Command document as we will use Run command
+    c.  **Document Type:** Command document as we will use Run command
         to install the package
 
     d.  Copy the below snippet into the contents:
-
+    
+```
     {
     	"schemaVersion": "2.2",
     	"description": "Command Document Example JSON Template",
@@ -56,6 +57,7 @@ Manager.
     		}
     	}]
     }
+```
 
 5.  Select **Create Document**
 

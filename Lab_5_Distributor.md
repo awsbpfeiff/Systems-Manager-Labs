@@ -11,9 +11,9 @@ deploy Powershell Core to a Linux Managed Instance.
 
     b.  Select Create Bucket
 
-    c.  Enter something like -- YOURFIRSTNAME10-sm
+    c.  Enter: YOURFIRSTNAME10-sm
 
-    d.  Region = us-east (N. Virginia)
+    d.  Region: us-east (N. Virginia)
 
     e.  Keep all defaults
 
@@ -33,7 +33,7 @@ deploy Powershell Core to a Linux Managed Instance.
 5.  Select **Simple Package** (Advanced allows you to specify your own
     install/uninstall scripts)
 
-6.  Enter -- **Posh-linux** for the name
+6.  Enter -- **PowerShell-linux** for the name
 
 7.  Select the bucket you made in step 1
 

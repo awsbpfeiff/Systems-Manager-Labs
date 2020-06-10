@@ -27,7 +27,7 @@ Forwarding with Session Manager**.
 
     c.  Configure instance details
 
-    d.  Number of instances = 1
+    d.  Number of instances: 1
 
     e.  Default VPC
 
@@ -35,7 +35,7 @@ Forwarding with Session Manager**.
 
     g.  Ensure auto-assign public IP is enabled
 
-    h.  IAM Role = ManagedInstancesRole (previously created -- this is
+    h.  IAM Role: ManagedInstancesRole (previously created -- this is
         what allows instances to work with Systems Manager)
 
     i.  Default Storage
