@@ -22,9 +22,9 @@ will be used later on in the Patch Manager lab.
 
     e.  Add tag
 
-        i.  **Key:** Patch Group
+        i.  Key: Patch Group
 
-        ii. **Value:** App
+        ii. Value: App
 
     f.  Select **Review and apply tag changes**
 
@@ -37,9 +37,9 @@ will be used later on in the Patch Manager lab.
 
     c.  Under Tags enter
 
-        i.  **Key:** Patch Group
+        i.  Key: Patch Group
 
-        ii. **Value:** App
+        ii. Value: App
 
     d.  Select **View Group Resources**
 
@@ -48,7 +48,7 @@ will be used later on in the Patch Manager lab.
 5.  In the group name enter **App**
 
 6.  In group tags you can add more tags to the full group if you would
-    like -- Key = App / Value = Front-end
+    like -- Key: App / Value: Front-end
 
     a.  These group tags do not show up under the individual resources
         -- It is another layer of tagging that can be done to the

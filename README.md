@@ -134,11 +134,11 @@ In this section we will deploy 4 managed instances that we will work with throug
     - Amazon Linux 2 (64-bit)
     - T2.micro
     - Configure instance details
-    - Number of instances = 4
+    - Number of instances: 4
     - Default VPC
     - No preference on subnet
     - Ensure auto-assign public IP is enabled
-    - IAM Role = **SM-Workshop-ManagedInstancesRole** (previously
+    - IAM Role: **SM-Workshop-ManagedInstancesRole** (previously
         created -- this is what allows instances to work with Systems
         Manager)
     - Default Storage
@@ -150,6 +150,6 @@ In this section we will deploy 4 managed instances that we will work with throug
 4.  Go back to view instances and ensure that all 4 transition to an Instance State of running
 
 5.  Add tag
-    - key=**Name** and value=**App1/App2** for two of the four
+    - key:**Name** and value:**App1/App2** for two of the four
         instances
-    - key=**Name** and value=**Web1/Web2** for remaining two
+    - key:**Name** and value:**Web1/Web2** for remaining two
