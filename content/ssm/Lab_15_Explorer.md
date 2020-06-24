@@ -1,3 +1,11 @@
+---
+title: "Explorer"
+date: 2020-06-T14:10:29-04:00
+weight: 17
+chapter: false
+pre: "<b>17. </b>"
+---
+
 Explorer builds on top of OpsCenter and enables you to have a
 multi-region / multi-account view of your environment.
 

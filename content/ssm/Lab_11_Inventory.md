@@ -1,3 +1,11 @@
+---
+title: "Inventory"
+date: 2020-06-T14:10:29-04:00
+weight: 13
+chapter: false
+pre: "<b>13. </b>"
+---
+
 Inventory allows you to collect a software catalog and configuration
 information for your instances. It leverages **State Manager** to create
 an association that runs the pre-defined document

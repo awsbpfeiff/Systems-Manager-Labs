@@ -1,3 +1,11 @@
+---
+title: "Session Manager - Port Forwarding"
+date: 2020-06-T14:10:29-04:00
+weight: 18
+chapter: false
+pre: "<b>18. </b>"
+---
+
 One common thing that is mentioned when showing **Session Manager** to
 folks new to **Systems Manager** is that it doesn't address RDP
 sessions. Port Forwarding utilizes SSH tunneling to establish a secure

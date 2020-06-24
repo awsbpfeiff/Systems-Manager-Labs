@@ -1,3 +1,11 @@
+---
+title: "Maintenance Windows"
+date: 2020-06-T14:10:29-04:00
+weight: 10
+chapter: false
+pre: "<b>10. </b>"
+---
+
 In this section we will create a Maintenance Window to be used within
 Patch Manager. We will be using the default service-linked role for
 Systems Manager. Custom Roles can be created to restrict actions a

@@ -1,3 +1,11 @@
+---
+title: "Compliance"
+date: 2020-06-T14:10:29-04:00
+weight: 11
+chapter: false
+pre: "<b>11. </b>"
+---
+
 Compliance is intended to be a dashboard where you can influence what is
 important to you and your organization by specifying a Severity level
 during configuration and present on if it is compliant with the task.

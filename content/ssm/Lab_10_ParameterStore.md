@@ -1,3 +1,11 @@
+---
+title: "Parameter Store"
+date: 2020-06-T14:10:29-04:00
+weight: 12
+chapter: false
+pre: "<b>12. </b>"
+---
+
 Parameter Store is a secure location to keep secrets and configuration
 information. It allows you to dynamically and securely retrieve data as
 you need it vs saving it within the Operating System or configuration

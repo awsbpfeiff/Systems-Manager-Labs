@@ -1,3 +1,11 @@
+---
+title: "Patch Manager"
+date: 2020-06-T14:10:29-04:00
+weight: 9
+chapter: false
+pre: "<b>9. </b>"
+---
+
 In this section we will create Patch Baselines and Patch Groups. These
 will be used to decide which patches to apply to our instances and which
 instances to target.

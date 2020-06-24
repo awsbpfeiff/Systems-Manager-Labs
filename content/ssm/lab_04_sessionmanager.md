@@ -1,3 +1,11 @@
+---
+title: "Session Manager"
+date: 2020-06-T14:10:29-04:00
+weight: 6
+chapter: false
+pre: "<b>6. </b>"
+---
+
 In this lab we will utilize Session Manager to connect to our App
 instances that we executed our Run command against. Session Manager is a
 tool that allows administrators Quickly and securely access your Amazon

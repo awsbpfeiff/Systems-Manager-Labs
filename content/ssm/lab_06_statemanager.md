@@ -1,3 +1,11 @@
+---
+title: "State Manager"
+date: 2020-06-T14:10:29-04:00
+weight: 8
+chapter: false
+pre: "<b>8. </b>"
+---
+
 **State Manager** is a tool that allows administrators to Maintain a
 consistent configuration of your instances and applications. **State
 Manager** allows you to specify a schedule to reapply your

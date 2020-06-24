@@ -52,6 +52,8 @@ An IAM role is used to register instances with Systems Manager. IAM role is used
 
 ### Create IAM Role for Maintenance Window Tasks
 
+#### Erik note - need to revisit this later and see if this task is really required as the built-in service role handles the majority of core MW tasks. Unless we are specifically going to include SNS notifications in the lab.
+
 This step is **critical** and could cause issues further into the workshop if not completed. 
 
 https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-perm-console.html 

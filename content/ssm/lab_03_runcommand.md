@@ -1,3 +1,11 @@
+---
+title: "Run Command"
+date: 2020-06-T14:10:29-04:00
+weight: 5
+chapter: false
+pre: "<b>5. </b>"
+---
+
 This section we will utilize the Run command to execute our newly built
 Document against our application instances.
 

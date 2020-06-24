@@ -1,3 +1,11 @@
+---
+title: "Distributor"
+date: 2020-06-T14:10:29-04:00
+weight: 7
+chapter: false
+pre: "<b>7. </b>"
+---
+
 Distributor is a capability that allows you to create custom packages
 for deployment to your Managed Instances. This could be helpful for
 application or tools deployment to your fleet. In this scenario we will

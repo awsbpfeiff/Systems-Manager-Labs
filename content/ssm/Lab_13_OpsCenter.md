@@ -1,3 +1,11 @@
+---
+title: "OpsCenter"
+date: 2020-06-T14:10:29-04:00
+weight: 15
+chapter: false
+pre: "<b>15. </b>"
+---
+
 OpsCenters helps provide a regional dashboard to surface infrastructure
 related issues. OpsCenter can report on any data that can be fed into
 CloudWatch Event Rules and configured as an SSM OpsItem. In this example

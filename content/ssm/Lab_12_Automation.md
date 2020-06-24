@@ -1,3 +1,11 @@
+---
+title: "Automation"
+date: 2020-06-T14:10:29-04:00
+weight: 14
+chapter: false
+pre: "<b>14. </b>"
+---
+
 The Automation capability allows you to execute multi-step, complex IT
 tasks. In this lab we are going to utilize the pre-defined Automation
 Document called AWS-ReszieInstance. I felt this was a good example to

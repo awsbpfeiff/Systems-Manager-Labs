@@ -1,3 +1,11 @@
+---
+title: "Documents"
+date: 2020-06-T14:10:29-04:00
+weight: 4
+chapter: false
+pre: "<b>4. </b>"
+---
+
 In this section we will create a custom document that can be used with
 other Systems Manager capabilities like Distributor, Run, and State
 Manager.
