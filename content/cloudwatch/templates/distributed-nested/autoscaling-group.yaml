@@ -1,0 +1,211 @@
+Description: >
+    This template launches our app instances within an autoscaling group and associates an instance profile
+    to allow access to Rekognition
+
+Parameters:
+
+    EnvironmentName:
+        Description: An environment name that will be prefixed to resource names
+        Type: String
+
+    KeyName:
+        Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
+        Type: AWS::EC2::KeyPair::KeyName
+        ConstraintDescription: must be the name of an existing EC2 KeyPair.
+
+    InstanceType:
+        Description: App EC2 instance type
+        Type: String
+        Default: t2.small
+        AllowedValues:
+        - t2.nano
+        - t2.micro
+        - t2.small
+        - t2.medium
+        - t2.large
+        ConstraintDescription: must be a valid EC2 instance type.
+
+    ClusterSize:
+        Description: How many app hosts do you want to initially deploy?
+        Type: Number
+        Default: 2
+
+    VPC:
+        Description: Choose which VPC this app cluster should be deployed to
+        Type: AWS::EC2::VPC::Id
+
+    Subnets:
+        Description: Choose which subnets this app cluster should be deployed to
+        Type: List<AWS::EC2::Subnet::Id>
+
+    SecurityGroup:
+        Description: Select the Security Group to use for the app cluster hosts
+        Type: AWS::EC2::SecurityGroup::Id
+
+    AppTargetGroup:
+        Description: Target group to register app instances to.
+        Type: String
+
+    DBName:
+        Description: WebApp Database Name
+        Type: String
+
+    DBUser:
+        Description: WebApp Database User
+        Type: String
+
+    DBPassword:
+        Description: WebApp Database User Password
+        Type: String
+
+    PrimaryInstanceName:
+        Description: A reference to RDS Primary Instance Name
+        Type: String
+
+    PrimaryInstancePort:
+        Description: A reference to RDS Primary Instance Port
+        Type: String
+
+    ImageUploadBucket:
+        Description: S3 Bucket where images will be uploaded to.
+        Type: String
+
+Mappings:
+  AWSInstanceType2Arch:
+    t2.nano:
+      Arch: HVM64
+    t2.micro:
+      Arch: HVM64
+    t2.small:
+      Arch: HVM64
+    t2.medium:
+      Arch: HVM64
+    t2.large:
+      Arch: HVM64
+  AWSRegionArch2AMI:
+    us-west-2:
+      HVM64: ami-061f916a72583df40
+    eu-west-1:
+      HVM64: ami-0a1a9495db04cc606
+    us-east-1:
+      HVM64: ami-08c30ea51ef9b98e5
+    us-east-2:
+      HVM64: ami-062d8971b01f7e9a4
+    ap-northeast-1:
+      HVM64: ami-041b1b4610ad4d5a2
+    ap-southeast-2:
+      HVM64: ami-0ba2cf09f54536fd2
+
+Resources:
+
+  AppAutoScalingGroup:
+        Type: AWS::AutoScaling::AutoScalingGroup
+        Properties:
+            VPCZoneIdentifier: !Ref Subnets
+            LaunchConfigurationName: !Ref AppLaunchConfiguration
+            MinSize: !Ref ClusterSize
+            MaxSize: !Ref ClusterSize
+            DesiredCapacity: !Ref ClusterSize
+            TargetGroupARNs:
+              - !Ref AppTargetGroup
+            Tags:
+                - Key: Name
+                  Value: !Sub ${EnvironmentName} App host
+                  PropagateAtLaunch: true
+        CreationPolicy:
+            ResourceSignal:
+                Timeout: PT15M
+        UpdatePolicy:
+            AutoScalingRollingUpdate:
+                MinInstancesInService: 1
+                MaxBatchSize: 1
+                PauseTime: PT15M
+                SuspendProcesses:
+                  - HealthCheck
+                  - ReplaceUnhealthy
+                  - AZRebalance
+                  - AlarmNotification
+                  - ScheduledActions
+                WaitOnResourceSignals: true
+
+  AppLaunchConfiguration:
+        Type: AWS::AutoScaling::LaunchConfiguration
+        Properties:
+            ImageId:
+              Fn::FindInMap:
+              - AWSRegionArch2AMI
+              - Ref: AWS::Region
+              - Fn::FindInMap:
+                - AWSInstanceType2Arch
+                - Ref: InstanceType
+                - Arch
+            InstanceType: !Ref InstanceType
+            SecurityGroups:
+                - !Ref SecurityGroup
+            IamInstanceProfile: !Ref WebAppInstanceProfile
+            KeyName: !Ref KeyName
+            UserData:
+                'Fn::Base64': !Sub |
+                    #!/bin/bash -xe
+                    # Install GraphicsMagick1.3
+                    amazon-linux-extras install -y GraphicsMagick1.3
+                    # Start X-ray Daemon
+                    nohup /usr/bin/xray -o -n ${AWS::Region} &                    
+                    # Set Environment Variables
+                    echo export AWS_REGION=${AWS::Region} >> /etc/profile
+                    echo export RAILS_ENV=production >> /etc/profile
+                    echo export RAILS_MASTER_KEY=cdf56d76316a62b4532137d4fbb7b1b5 >> /etc/profile
+                    echo export DB_NAME=${DBName} >> /etc/profile
+                    echo export DB_USER=${DBUser} >> /etc/profile
+                    echo export DB_PASS=${DBPassword} >> /etc/profile
+                    echo export DB_HOST=${PrimaryInstanceName} >> /etc/profile
+                    echo export DB_PORT=${PrimaryInstancePort} >> /etc/profile
+                    echo export IMAGE_UPLOAD_BUCKET=${ImageUploadBucket} >> /etc/profile
+                    source /etc/profile
+                    # Deploy App
+                    git clone https://github.com/horsfieldsa/example-corp-app.git /opt/webapp --branch v1.0.1
+                    cd /opt/webapp
+                    bundle install
+                    RAILS_ENV=production rails assets:precompile
+                    bin/rails db:create
+                    bin/rails db:migrate
+                    bin/rails db:seed
+                    nohup bundle exec puma -C config/puma.rb -e production -p 3000 &
+                    # Signal Completion
+                    /opt/aws/bin/cfn-signal -e 0 --region ${AWS::Region} --stack ${AWS::StackName} --resource AppAutoScalingGroup
+                    
+  WebAppInstanceAccessRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      ManagedPolicyArns: 
+        - arn:aws:iam::aws:policy/AmazonRekognitionReadOnlyAccess
+        - arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess
+        - arn:aws:iam::aws:policy/ComprehendReadOnly
+        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+        - arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess # TODO: Restrict to Bucket
+      AssumeRolePolicyDocument: 
+        Version: "2012-10-17"
+        Statement: 
+          - 
+            Effect: "Allow"
+            Principal: 
+              Service: 
+                - "ec2.amazonaws.com"
+            Action: 
+              - "sts:AssumeRole"
+      Path: "/"
+
+  WebAppInstanceProfile: 
+    Type: "AWS::IAM::InstanceProfile"
+    Properties: 
+      Path: "/"
+      Roles: 
+        - 
+          Ref: "WebAppInstanceAccessRole"
+
+Outputs:
+
+    AppAutoScalingGroup: 
+        Description: The autoscaling group for the application.
+        Value: !Ref AppAutoScalingGroup

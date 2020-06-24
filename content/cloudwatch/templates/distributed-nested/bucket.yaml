@@ -1,0 +1,14 @@
+Description: >
+    This template deploys an S3 bucket for hosting uploaded images.
+
+Resources:
+
+  ImageUploadBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Delete
+
+Outputs:
+
+    ImageUploadBucket:
+        Description: S3 Bucket where images are uploaded to.
+        Value: !Ref ImageUploadBucket

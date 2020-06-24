@@ -1,0 +1,242 @@
+Description: >
+    This template launches our app instances within an autoscaling group and associates an instance profile
+    to allow access to Rekognition
+
+Parameters:
+
+  CompleteSystemsManagerSectionOfLab: 
+    Description: Do you want to complete the Systems Manager section of the lab? (yes/no)
+    Type: String
+    Default: 'yes'
+    AllowedValues: 
+      - 'yes'
+      - 'no'
+    ConstraintDescription: must be yes or no
+
+  EnvironmentName:
+      Description: An environment name that will be prefixed to resource names
+      Type: String
+
+  InstanceType:
+      Description: App EC2 instance type
+      Type: String
+      Default: t2.small
+      AllowedValues:
+      - t2.nano
+      - t2.micro
+      - t2.small
+      - t2.medium
+      - t2.large
+      ConstraintDescription: must be a valid EC2 instance type.
+
+  ClusterSize:
+      Description: How many app hosts do you want to initially deploy?
+      Type: Number
+      Default: 2
+
+  VPC:
+      Description: Choose which VPC this app cluster should be deployed to
+      Type: AWS::EC2::VPC::Id
+
+  Subnets:
+      Description: Choose which subnets this app cluster should be deployed to
+      Type: List<AWS::EC2::Subnet::Id>
+
+  SecurityGroup:
+      Description: Select the Security Group to use for the app cluster hosts
+      Type: AWS::EC2::SecurityGroup::Id
+
+  AppTargetGroup:
+      Description: Target group to register app instances to.
+      Type: String
+
+  DBName:
+      Description: Imagetrends Database Name
+      Type: String
+      Default: imagetrends
+
+  DBUser:
+      Description: Imagetrends Database User
+      Type: String
+      Default: imagetrends
+      
+  DBPassword:
+      Description: Imagetrends Database User Password
+      Type: String
+      Default: imagetrends
+
+  PrimaryInstanceName:
+      Description: A reference to RDS Primary Instance Name
+      Type: String
+
+  PrimaryInstancePort:
+      Description: A reference to RDS Primary Instance Port
+      Type: String
+
+  ImageUploadBucket:
+      Description: S3 Bucket where images will be uploaded to.
+      Type: String
+
+Mappings:
+  AWSInstanceType2Arch:
+    t2.nano:
+      Arch: HVM64
+    t2.micro:
+      Arch: HVM64
+    t2.small:
+      Arch: HVM64
+    t2.medium:
+      Arch: HVM64
+    t2.large:
+      Arch: HVM64
+  AWSRegionArch2AMI:
+    #us-west-2:
+    #  HVM64: ami-0cee40ea30086f27c
+    eu-west-1:
+      'yes': ami-01d88fc5e32e766e5
+      'no': ami-0ba1b5a05ec99fb83
+    #us-east-1:
+    #  HVM64: ami-0f5dcea88f141f88f
+    #us-east-2:
+    #  HVM64: ami-095c14d0f3eb74872
+    #ap-northeast-1:
+    #  HVM64: ami-0de43e4a01cef90e3
+    #ap-southeast-2:
+    #  HVM64: ami-00a62ce5a45899d72
+
+Resources:
+
+  AppAutoScalingGroup:
+        Type: AWS::AutoScaling::AutoScalingGroup
+        Properties:
+            VPCZoneIdentifier: !Ref Subnets
+            LaunchConfigurationName: !Ref AppLaunchConfiguration
+            MinSize: !Ref ClusterSize
+            MaxSize: !Ref ClusterSize
+            DesiredCapacity: !Ref ClusterSize
+            TargetGroupARNs:
+              - !Ref AppTargetGroup
+            Tags:
+                - Key: Name
+                  Value: Lab App host
+                  PropagateAtLaunch: true
+        CreationPolicy:
+            ResourceSignal:
+                Timeout: PT15M
+        UpdatePolicy:
+            AutoScalingRollingUpdate:
+                MinInstancesInService: 1
+                MaxBatchSize: 1
+                PauseTime: PT15M
+                SuspendProcesses:
+                  - HealthCheck
+                  - ReplaceUnhealthy
+                  - AZRebalance
+                  - AlarmNotification
+                  - ScheduledActions
+                WaitOnResourceSignals: true
+
+  AppLaunchConfiguration:
+        Type: AWS::AutoScaling::LaunchConfiguration
+        Properties:
+            ImageId:
+              Fn::FindInMap:
+              - AWSRegionArch2AMI
+              - Ref: AWS::Region
+              - Ref: CompleteSystemsManagerSectionOfLab
+              #- Fn::FindInMap:
+              #  - AWSInstanceType2Arch
+              #  - Ref: InstanceType
+              #  - Arch
+            InstanceType: !Ref InstanceType
+            SecurityGroups:
+                - !Ref SecurityGroup
+            IamInstanceProfile: !Ref ImagetrendsInstanceProfile
+            UserData:
+                'Fn::Base64': !Sub |
+                    #!/bin/bash -xe
+                    # Install GraphicsMagick1.3
+                    amazon-linux-extras install -y GraphicsMagick1.3
+                    # Start X-ray Daemon
+                    nohup /usr/bin/xray -o -n ${AWS::Region} &                    
+                    # Set Environment Variables
+                    echo export AWS_REGION=${AWS::Region} >> /etc/profile
+                    echo export RAILS_ENV=production >> /etc/profile
+                    echo export RAILS_MASTER_KEY=cdf56d76316a62b4532137d4fbb7b1b5 >> /etc/profile
+                    echo export DB_NAME=${DBName} >> /etc/profile
+                    echo export DB_USER=${DBUser} >> /etc/profile
+                    echo export DB_PASS=${DBPassword} >> /etc/profile
+                    echo export DB_HOST=${PrimaryInstanceName} >> /etc/profile
+                    echo export DB_PORT=${PrimaryInstancePort} >> /etc/profile
+                    echo export IMAGE_UPLOAD_BUCKET=${ImageUploadBucket} >> /etc/profile
+                    source /etc/profile
+                    # Deploy App
+                    git clone https://github.com/horsfieldsa/imagetrends.git /opt/imagetrends --branch v1.0.1
+                    cd /opt/imagetrends
+                    bundle install
+                    RAILS_ENV=production rails assets:precompile
+                    bin/rails db:create
+                    bin/rails db:migrate
+                    bin/rails db:seed
+                    nohup bundle exec puma -C config/puma.rb -e production -p 3000 &
+                    # Restart App on Reboot
+                    echo "nohup /usr/bin/xray -o -n eu-west-1 > /dev/null 2>&1 &" >> /etc/rc.d/rc.local
+                    echo "source /etc/profile" >> /etc/rc.d/rc.local
+                    echo "cd /opt/imagetrends" >> /etc/rc.d/rc.local
+                    echo "nohup bundle exec puma -C config/puma.rb -e production -p 3000 > /dev/null 2>&1 &" >> /etc/rc.d/rc.local
+                    chmod +x /etc/rc.d/rc.local
+                    # Signal Completion
+                    /opt/aws/bin/cfn-signal -e 0 --region ${AWS::Region} --stack ${AWS::StackName} --resource AppAutoScalingGroup
+                    
+  ImagetrendsInstanceAccessRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      ManagedPolicyArns: 
+        - arn:aws:iam::aws:policy/AmazonRekognitionReadOnlyAccess
+        - arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess
+        - arn:aws:iam::aws:policy/ComprehendReadOnly
+        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+        - arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess # TODO: Restrict to Bucket
+      AssumeRolePolicyDocument: 
+        Version: "2012-10-17"
+        Statement: 
+          - 
+            Effect: "Allow"
+            Principal: 
+              Service: 
+                - "ec2.amazonaws.com"
+            Action: 
+              - "sts:AssumeRole"
+      Path: "/"
+      Policies: 
+        -
+          PolicyName: GetCloudWatchParameter        
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - 'ssm:GetParameter*'
+                Resource:     
+                  Fn::Join:
+                    - ''
+                    - - 'arn:aws:ssm:' 
+                      - Ref: "AWS::Region"
+                      - ':'
+                      - Ref: "AWS::AccountId"
+                      - ':parameter/CFN-CloudWatchAgentConfig-*'      
+
+  ImagetrendsInstanceProfile: 
+    Type: "AWS::IAM::InstanceProfile"
+    Properties: 
+      Path: "/"
+      Roles: 
+        - 
+          Ref: "ImagetrendsInstanceAccessRole"
+
+Outputs:
+
+    AppAutoScalingGroup: 
+        Description: The autoscaling group for the application.
+        Value: !Ref AppAutoScalingGroup

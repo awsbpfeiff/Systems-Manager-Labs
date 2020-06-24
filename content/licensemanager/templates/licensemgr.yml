@@ -1,0 +1,220 @@
+AWSTemplateFormatVersion: 2010-09-09
+# This is the AWS CentOS Marketplace AMI located here:  https://aws.amazon.com/marketplace/pp/B00O7WM7QW
+
+Mappings:
+  RegionMap:
+    us-east-1:
+      CentOSAMI: ami-02eac2c0129f6376b
+      WindowsAMI: ami-0c7e654cc88a47a3e
+    us-west-1:
+      CentOSAMI: ami-098f55b4287a885ba
+      WindowsAMI: ami-0812e192db450b3c5
+
+Resources:
+  SQLServer:
+    Type: 'AWS::EC2::Instance'
+    Version: 2009-05-15
+    Properties:
+      ImageId: !FindInMap
+       - RegionMap
+       - !Ref 'AWS::Region'
+       - WindowsAMI
+      InstanceType: t3.xlarge
+      Monitoring: 'true'
+      DisableApiTermination: 'false'
+      IamInstanceProfile: !Ref SSMInstanceProfile
+      NetworkInterfaces:
+      - DeviceIndex: '0'
+        SubnetId: !Ref PublicSubnetA
+        GroupSet: [!Ref InstanceSecurityGroup]
+      UserData:
+        Fn::Base64: !Sub |
+          <powershell>
+            $logdirectory = "c:\setup"
+            mkdir $logdirectory
+            $logfile = "$logdirectory\licensemgrsetup.log"
+            $timestamp = Get-Date -Format o | foreach {$_ -replace ":", "."}
+            echo "------------------------------Starting setup of License Manager at $timestamp" *>> $logfile
+            $instanceid = Get-EC2InstanceMetadata -Category InstanceId
+            New-SSMAssociation `
+              -AssociationName GatherWindowsSoftware `
+              -Name AWS-GatherSoftwareInventory `
+              -Target @{
+                  "Key"="instanceids"
+                  "Values"="$instanceid"
+                } `
+          </powershell>
+      Tags:
+      - Key: Name
+        Value: "AWS License Manager - SQL Server 2016 Standard"
+      - Key: OS
+        Value: "Windows Server 2016"
+
+  # Managed instance security group.
+  InstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: "Security group for Session Manager POC instances."
+      GroupName: "session-manager-demo"
+      SecurityGroupEgress:
+        - CidrIp: "0.0.0.0/0"
+          IpProtocol: "-1"
+      VpcId:
+        Ref: "VPC"
+  Oracle:
+    Type: 'AWS::EC2::Instance'
+    Version: 2009-05-15
+    Properties:
+      ImageId: !FindInMap
+        - RegionMap
+        - !Ref 'AWS::Region'
+        - CentOSAMI
+      InstanceType: t3.medium
+      Monitoring: 'true'
+      DisableApiTermination: 'false'
+      IamInstanceProfile: !Ref SSMInstanceProfile
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: '20'
+            VolumeType: gp2
+      NetworkInterfaces:
+      - DeviceIndex: '0'
+        SubnetId: !Ref PublicSubnetA
+        GroupSet: [!Ref InstanceSecurityGroup]
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash -v
+          echo "installing ssm agent" &>> /tmp/bootstrap.log
+          yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm &>> /tmp/bootstrap.log
+          systemctl status amazon-ssm-agent &>> /tmp/bootstrap.log
+          echo "downloading oracle preinstall" &>> /tmp/bootstrap.log
+          curl -o /tmp/oracle-database-preinstall-18c-1.0-1.el7.x86_64.rpm https://yum.oracle.com/repo/OracleLinux/OL7/latest/x86_64/getPackage/oracle-database-preinstall-18c-1.0-1.el7.x86_64.rpm &>> /tmp/bootstrap.log
+          echo "installing oracle preinstall" &>> /tmp/bootstrap.log
+          yum -y localinstall /tmp/oracle-database-preinstall-18c-1.0-1.el7.x86_64.rpm &>> /tmp/bootstrap.log
+          rm -f /tmp/oracle-database-preinstall-18c-1.0-1.el7.x86_64.rpm &>> /tmp/bootstrap.log
+          echo "downloading cli" &>> /tmp/bootstrap.log
+          curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "/tmp/awscli-bundle.zip" &>> /tmp/bootstrap.log
+          echo "unzipping cli" &>> /tmp/bootstrap.log
+          unzip /tmp/awscli-bundle.zip -d /tmp &>> /tmp/bootstrap.log
+          echo "installing cli" &>> /tmp/bootstrap.log
+          /tmp/awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws &>> /tmp/bootstrap.log
+          echo "downloading oracle xe" &>> /tmp/bootstrap.log
+          curl -o /tmp/oracle-database-xe-18c-1.0-1.x86_64.rpm https://workshop.aws-management.tools/assets/oracle-database-xe-18c-1.0-1.x86_64.rpm &>> /tmp/bootstrap.log
+          echo "installing oracle xe" &>> /tmp/bootstrap.log
+          yum -y localinstall /tmp/oracle-database-xe-18c-1.0-1.x86_64.rpm &>> /tmp/bootstrap.log
+          echo "creating SSM association for inventory" &>> /tmp/bootstrap.log
+          aws ssm create-association --name "AWS-GatherSoftwareInventory" --association-name "GatherCentosSoftware" --region ${AWS::Region} --targets "Key=instanceids,Values=$(curl http://169.254.169.254/latest/meta-data/instance-id)" &>> /tmp/bootstrap.log
+      Tags:
+      - Key: Name
+        Value: "AWS License Manager - Oracle Xe 18c"
+      - Key: OS
+        Value: "Linux RHEL7.0"
+  SSMRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - ec2.amazonaws.com
+                - ssm.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      Path: /
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+  RolePolicies:
+    Type: 'AWS::IAM::Policy'
+    Properties:
+      PolicyName: SSMRole
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Action:
+              - 'ssm:CreateAssociation'
+            Resource: '*'
+      Roles:
+        - !Ref SSMRole
+  SSMInstanceProfile:
+    Type: 'AWS::IAM::InstanceProfile'
+    Properties:
+      Path: /
+      Roles:
+        - !Ref SSMRole
+
+  # Create baseline VPC.
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.1.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+      - Key: Name
+        Value: !Sub ${AWS::StackName}
+
+  # Provide the VPC with Internet access.
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    DependsOn: VPC
+  AttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref VPC
+      InternetGatewayId: !Ref InternetGateway
+
+  # Create 2 public subnets.
+  PublicSubnetA:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 10.1.10.0/24
+      MapPublicIpOnLaunch: true
+      AvailabilityZone: !Select [ 0, !GetAZs ] # Get the first AZ in the list.
+      Tags:
+      - Key: Name
+        Value: !Sub ${AWS::StackName}-Public-A
+  PublicSubnetB:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 10.1.20.0/24
+      MapPublicIpOnLaunch: true
+      AvailabilityZone: !Select [ 1, !GetAZs ] # Get the second AZ in the list
+      Tags:
+      - Key: Name
+        Value: !Sub ${AWS::StackName}-Public-B
+
+  # Create public route table.
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+      Tags:
+      - Key: Name
+        Value: Public
+  PublicRoute1:
+    Type: AWS::EC2::Route
+    DependsOn: AttachGateway
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+
+  # Attach the public subnets to public route table.
+  PublicSubnetARouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnetA
+      RouteTableId: !Ref PublicRouteTable
+  PublicSubnetBRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnetB
+      RouteTableId: !Ref PublicRouteTable
+

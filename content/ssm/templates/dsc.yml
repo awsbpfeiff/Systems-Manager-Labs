@@ -1,0 +1,44 @@
+
+AWSTemplateFormatVersion: 2010-09-09
+
+# DSC Demo
+
+Parameters:
+  AmiId:
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-gp2'
+
+Resources:
+  # Create S3 bucket for session logging.
+  LoggingBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Join ['-', ["dsc-demo", !Ref "AWS::AccountId", !Ref "AWS::Region"]]
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+        - ServerSideEncryptionByDefault:
+            SSEAlgorithm: AES256
+
+  # Production AMZN Linux instance.
+  ProductionLinuxInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref AmiId
+      InstanceType: "t3.small"
+      Tags:
+      - Key: Name
+        Value: "dsc-linux-prod"
+      - Key: Environment
+        Value: "Production"
+
+  # Stage AMZN Linux instance.
+  StageLinuxInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref AmiId
+      InstanceType: "t3.small"
+      Tags:
+      - Key: Name
+        Value: "dsc-linux-stage"
+      - Key: Environment
+        Value: "Stage"
