@@ -24,7 +24,7 @@ dropped into a Powershell terminal .
 4.  Select **Start Session**
 
 5.  You will be directed to a new tab and presented with the shell of
-    the target **App** server
+    the target **Web** server
 
 6.  Switch back to the **Session Manager** tab and select refresh -- You
     can now see the active session you've established
