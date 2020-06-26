@@ -65,7 +65,7 @@ Forwarding with Session Manager**.
 1.  Open an AWS CLI session (refer to Accessing AWS Account for your AWS
     keys)
 
-2. Install the [Session Manager Plugin] (https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html)
+2. Install the [Session Manager Plugin](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html)
 
 3.  Run the following command
 
