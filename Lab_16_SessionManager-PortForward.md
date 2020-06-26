@@ -49,7 +49,7 @@ Forwarding with Session Manager**.
     m.  Select Key Pair that you previously created (this will be used
         to retrieve the admin password for the instance)
 
-4.  Go back to view instances and ensure that all 1 transition to an
+4.  Go back to view instances and ensure that all transition to an
     Instance State of running
 
 5.  Navigate to [Systems Manager \> Instances & Nodes \> Managed
@@ -65,24 +65,26 @@ Forwarding with Session Manager**.
 1.  Open an AWS CLI session (refer to Accessing AWS Account for your AWS
     keys)
 
-2.  Run the following command
+2. Install the [Session Manager Plugin] (https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html)
+
+3.  Run the following command
 
     a.  *aws ssm start-session \--target \"Your Instance ID\"
         \--document-name AWS-StartPortForwardingSession \--parameters
         \"portNumber\"=\[\"3389\"\],\"localPortNumber\"=\[\"56789\"\]*
 
-3.  You will see that your session has started
+4.  You will see that your session has started
 
 ![](./media/image40.png)
 
-4.  Navigate to [Systems Manager \> Instances & Nodes \> Session
+5.  Navigate to [Systems Manager \> Instances & Nodes \> Session
     Manager](https://console.aws.amazon.com/systems-manager/session-manager/sessions)
 
-5.  You will now see your session open inside the console
+6.  You will now see your session open inside the console
 
 ![](./media/image41.png)
 
-6.  Navigate back EC2 and get your password
+7.  Navigate back EC2 and get your password
 
     a.  Select **Connect** on your instance
 
@@ -90,24 +92,24 @@ Forwarding with Session Manager**.
 
     c.  Select your Key Pair used to deploy the instance
 
-7.  Open your RDP client
+8.  Open your RDP client
 
-8.  Connect to localhost:56789
+9.  Connect to localhost:56789
 
 ![](./media/image42.png)
 
-9.  Log in with your Administrator user and password
+10.  Log in with your Administrator user and password
 
     a.  If you switch back to your console you will see the latest
         message is "Connection accepted for session -- Meaning you
         established a connection with the remote service on the defined
         local port in your command
 
-10. Wait for login -- t2.micro (t2.small is what should have been used)
+11. Wait for login -- t2.micro (t2.small is what should have been used)
     is a bit undersized for Windows Server 2019 and took a while to log
     in
 
-11. Once logged in you can query the instance meta-data to verify you
+12. Once logged in you can query the instance meta-data to verify you
     are on the right instance -- Open Powershell console
 
     a.  **Invoke-RestMethod -uri
@@ -116,10 +118,10 @@ Forwarding with Session Manager**.
     b.  **Invoke-RestMethod -uri
         http://169.254.169.254/latest/meta-data/instance-id**
 
-12. Got back to your AWS CLI session and kill the command -- You will
+13. Got back to your AWS CLI session and kill the command -- You will
     see the RDP session terminate as the tunnel is torn down
 
-13. Navigate back to Session Manager \> Session History and you can see
+14. Navigate back to Session Manager \> Session History and you can see
 
     a.  Session owner ARN
 
