@@ -36,7 +36,7 @@ Instances.**
     dashboard -- if the agent is not updated you will see a High
     severity non-compliance alert
 
-11. **Rate Contro:** Target 1 and Error 1
+11. **Rate Control:** Target 1 and Error 1
 
 12. Leave writing output to S3 bucket unchecked for now
 
