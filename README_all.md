@@ -72,10 +72,6 @@ You will need the following things:
 
 -   100 level knowledge of AWS services and the AWS Management Console
 
--   Enable Navigation Pane within this document to make browsing easier
-    (View \> Navigation Pane \> Left hand side select the list one 2^nd^
-    from left)
-
 Accessing AWS Account
 ---------------------
 
@@ -89,18 +85,16 @@ accounts.
 ```{=html}
 <!-- -->
 ```
-18. Log in with the team hash that is provided to you -- This will be
+2. Log in with the team hash that is provided to you -- This will be
     your own account
 
-19. ![](./media/image1.png){width="3.47087489063867in"
-    height="1.3657403762029747in"}
+3. ![](./media/image1.png)
 
-20. Log into the console using the provided Login Link
+4. Log into the console using the provided Login Link
 
-21. ![](./media/image2.png){width="3.52129593175853in"
-    height="1.695553368328959in"}
+5. ![](./media/image2.png)
 
-22. Once the event is complete, the account will be deleted.
+6. Once the event is complete, the account will be deleted.
 
 Setup - Managed Instances
 -------------------------
