@@ -82,9 +82,6 @@ accounts.
 
 1.  Browse to <https://dashboard.eventengine.run>
 
-```{=html}
-<!-- -->
-```
 2. Log in with the team hash that is provided to you -- This will be
     your own account
 
