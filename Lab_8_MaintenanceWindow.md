@@ -1,8 +1,8 @@
-In this section we will create a Maintenance Window to be used within
-Patch Manager. We will be using the default service-linked role for
-Systems Manager. Custom Roles can be created to restrict actions a
-service can perform within a Maintenance Window and selected during the
-association of a Maintenance Window and a service.
+AWS Systems Manager Maintenance Windows let you define a schedule for when to perform potentially disruptive actions on your instances such as patching an operating system, updating drivers, or installing software or patches. Maintenance Windows also lets you schedule actions on numerous other AWS resource types, such as Amazon Simple Storage Service (Amazon S3) buckets, Amazon Simple Queue Service (Amazon SQS) queues, AWS Key Management Service (AWS KMS) keys, and many more. For a full list of supported resource types that you can include in a maintenance window target, see [Supported Resources for AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html#supported-resources-console) in the AWS Resource Groups User Guide.
+
+Each maintenance window has a schedule, a maximum duration, a set of registered targets (the instances or other AWS resources that are acted upon), and a set of registered tasks. You can add tags to your maintenance windows when you create or update them. (Tags are keys that help identify and sort your resources within your organization.) You can also specify dates that a maintenance window should not run before or after, and you can specify the international time zone on which to base the maintenance window schedule.
+
+In this section we will create a Maintenance Window to be used within Patch Manager. We will be using the default service-linked role for Systems Manager. Custom Roles can be created to restrict actions a service can perform within a Maintenance Window and selected during the association of a Maintenance Window and a service.
 
 ### High-level Objectives
 

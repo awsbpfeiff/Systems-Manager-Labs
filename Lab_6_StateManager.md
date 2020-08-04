@@ -1,13 +1,20 @@
-**State Manager** is a tool that allows administrators to Maintain a
-consistent configuration of your instances and applications. **State
-Manager** allows you to specify a schedule to reapply your
-configurations to your instances. **State Manager** provides similar
-functionality to traditional Configuration Management tooling like
-Puppet, Chef, and Ansible. You specify a schedule to apply your
-**Document** commands to your **Managed Instances** via an
-**Association**. In this lab, we will be enabling the pre-defined
-**Document** for updating the SSM Agent on targeted **Managed
-Instances.**
+AWS Systems Manager State Manager is a secure and scalable configuration management service that automates the process of keeping your Amazon EC2 and hybrid infrastructure in a state that you define.
+
+The following list describes the types of tasks you can perform with State Manager.
+
+* Bootstrap instances with specific software at start-up
+
+* Download and update agents on a defined schedule, including SSM Agent
+
+* Configure network settings
+
+* Join instances to a Windows domain (Windows Server instances only).
+
+* Patch instances with software updates throughout their lifecycle
+
+* Run scripts on Linux and Windows managed instances throughout their lifecycle
+
+In this section we will configure a **State Manager Association** that will update the Systems Manager Agent on the registered Managed Instances.  
 
 1.  Navigate to [Systems Manager \> Instances & Nodes \> State
     Manager](https://console.aws.amazon.com/systems-manager/state-manager)
@@ -27,34 +34,33 @@ Instances.**
 7. **Specify schedule:** On schedule (can run one for initial
     provisioning) / every 30 mins (for the lab)
 
-8. If this was a real world scenario you would like check weekly for a
-    new release
+   1. If this was a real world scenario you would configure the frequency to be 14 days per Systems Manager best practices
 
-9. **Compliance:** High
+8. **Compliance:** High
 
-10. This is specifying how you like this ranked within the Compliance
+9.  This is specifying how you like this ranked within the Compliance
     dashboard -- if the agent is not updated you will see a High
     severity non-compliance alert
 
-11. **Rate Control:** Target 1 and Error 1
+10. **Rate Control:** Target 1 and Error 1
 
-12. Leave writing output to S3 bucket unchecked for now
+11. Leave writing output to S3 bucket unchecked for now
 
-13. Select Create Association
+12. Select Create Association
 
-14. ![](./media/image10.png)
+13. ![](./media/image10.png)
 
-15. Select on the Association ID to review the Association details
+14. Select on the Association ID to review the Association details
 
-16. Then Select Apply Association Now (upper right corner)
+15. Then Select Apply Association Now (upper right corner)
 
-17. Select **Apply**
+16. Select **Apply**
 
-18. Select the Association ID to review the Association details
+17. Select the Association ID to review the Association details
 
-19. Select **Execution History**
+18. Select **Execution History**
 
-20. Select the most recent **Execution ID**
+19. Select the most recent **Execution ID**
 
 ![](./media/image11.png)
 

@@ -1,8 +1,6 @@
-OpsCenters helps provide a regional dashboard to surface infrastructure
-related issues. OpsCenter can report on any data that can be fed into
-CloudWatch Event Rules and configured as an SSM OpsItem. In this example
-we will enable OpsCenter and review the default rules in creates and
-look at what a live issue looks like in the dashboard.
+OpsCenter provides a central location where operations engineers and IT professionals can view, investigate, and resolve operational work items (OpsItems) related to AWS resources. OpsCenter is designed to reduce mean time to resolution for issues impacting AWS resources. This Systems Manager capability aggregates and standardizes OpsItems across services while providing contextual investigation data about each OpsItem, related OpsItems, and related resources. OpsCenter also provides Systems Manager Automation documents (runbooks) that you can use to quickly resolve issues. You can specify searchable, custom data for each OpsItem. You can also view automatically-generated summary reports about OpsItems by status and source.
+
+In this lab we will enable OpsCenter, create a new OpsItem, trigger the OpsItem, and review the output within OpsCenter.  
 
 1.  Navigate to [Systems Manager \> Operations Management \>
     OpsCenter](https://console.aws.amazon.com/systems-manager/opsitems)
@@ -90,7 +88,7 @@ look at what a live issue looks like in the dashboard.
         i.  Related resources shows the ARN of the instance your
             terminated
 
-        ii. Runbooks is powerful as it allows you to take action of the
+        ii. Runbooks is powerful as it allows you to take action on the
             event via runbook as the event occurs
 
         iii. Operational Data will show you the instance ID, the state,

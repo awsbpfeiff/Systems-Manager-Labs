@@ -1,8 +1,9 @@
-Change Calendar is a powerful tool that allows you to specify whether
-changes can be executed during a specific date and time automatically.
-You can query this information using Automation workflows by
-incorporating them into your Automation Document or you can query the
-calendar state from AWS CLI.
+Systems Manager Change Calendar lets you set up date and time ranges when actions you specify (for example, in Systems Manager Automation documents) may or may not be performed in your AWS account. In Change Calendar, these ranges are called events. When you create a Change Calendar entry, you are creating a Systems Manager document of the type ChangeCalendar. In Change Calendar, the document stores iCalendar 2.0 data in plaintext format. Events that you add to the Change Calendar entry become part of the document.
+
+There are two types of Change Calendar entries:
+
+* **DEFAULT_OPEN**: actions can run by default, but are blocked from running during associated events
+* **DEFAULT_CLOSED**: actions do not run by default, but can run during events associated with the calendar entry
 
 1.  Navigate to [Systems Manager \> Actions & Change \> Change
     Calendar](https://console.aws.amazon.com/systems-manager/change-calendar/)

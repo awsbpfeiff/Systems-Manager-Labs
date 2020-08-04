@@ -1,5 +1,8 @@
-Explorer builds on top of OpsCenter and enables you to have a
-multi-region / multi-account view of your environment.
+AWS Systems Manager Explorer is a customizable operations dashboard that reports information about your AWS resources. Explorer displays an aggregated view of operations data (OpsData) for your AWS accounts and across Regions. In Explorer, OpsData includes metadata about your EC2 instances, patch compliance details, and operational work items (OpsItems). Explorer provides context about how OpsItems are distributed across your business units or applications, how they trend over time, and how they vary by category. You can group and filter information in Explorer to focus on items that are relevant to you and that require action. When you identify high priority issues, you can use Systems Manager OpsCenter to run Automation runbooks and quickly resolve those issues.
+
+[Getting Started with Explorer](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer.html)
+
+In this lab we will enable Explorer and review the options for multi-region multi-account deployment.  
 
 1.  Navigate to [Systems Manager \> Operations Management \>
     Explorer](https://console.aws.amazon.com/systems-manager/explorer?region=us-east-1)

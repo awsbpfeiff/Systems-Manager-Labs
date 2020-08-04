@@ -1,13 +1,3 @@
-In this section we will create Patch Baselines and Patch Groups. These
-will be used to decide which patches to apply to our instances and which
-instances to target.
-
-**Warning** \* **AWS does not test patches for Windows or Linux before
-making them available in Patch Manager** . \* **If any updates are
-installed by Patch Manager the patched instance is rebooted**.
-\* **Always test patches thoroughly before deploying to production
-environments. This is a customer owned responsibility.**
-
 Patch Manager uses **patch baselines**, which include rules for
 auto-approving patches within days of their release, as well as a list
 of approved and rejected patches. Later in this lab we will schedule
@@ -16,6 +6,16 @@ Manager** **Maintenance Window** task. Patch Manager integrates with AWS
 Identity and Access Management (IAM), AWS CloudTrail, and Amazon
 CloudWatch Events to provide a secure patching experience that includes
 event notifications and the ability to audit usage.
+
+**Warning** \* **AWS does not test patches for Windows or Linux before
+making them available in Patch Manager** . \* **If any updates are
+installed by Patch Manager the patched instance is rebooted**.
+\* **Always test patches thoroughly before deploying to production
+environments. This is a customer owned responsibility.**
+
+In this section we will create Patch Baselines and Patch Groups. These
+will be used to decide which patches to apply to our instances and which
+instances to target.
 
 ### High-level Objectives
 

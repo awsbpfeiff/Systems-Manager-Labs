@@ -33,7 +33,7 @@ deploy Powershell Core to a Linux Managed Instance.
 5.  Select **Simple Package** (Advanced allows you to specify your own
     install/uninstall scripts)
 
-6.  Enter -- **PowerShell-linux** for the name
+6.  Enter: **PowerShell-linux** for the name
 
 7.  Select the bucket you made in step 1
 

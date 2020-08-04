@@ -1,15 +1,16 @@
-The Automation capability allows you to execute multi-step, complex IT
-tasks. In this lab we are going to utilize the pre-defined Automation
-Document called AWS-ReszieInstance. I felt this was a good example to
-show case a task that we would typically say is easy or simple. Consider
-this scenario, if you were an administrator of a business that had
-10,000 instances across 3 regions. The finance team worked with
-Enterprise Support to perform a Cost Optimization analysis and
-identified 2,500 instances running larger instance types than are
-necessary for the workload. You are now tasked with resizing them.
-Automation and Maintenance Window can now take what would be a painful
-task and turn it into a planned tasked that one person can execute in
-one maintenance window.
+Systems Manager Automation simplifies common maintenance and deployment tasks of EC2 instances and other AWS resources. Automation enables you to do the following:
+
+* Build Automation workflows to configure and manage instances and AWS resources.
+
+* Create custom workflows or use pre-defined workflows maintained by AWS.
+
+* Receive notifications about Automation tasks and workflows by using Amazon CloudWatch Events.
+
+* Monitor Automation progress and execution details by using the Amazon EC2 or the AWS Systems Manager console.
+
+Consider this scenario, if you were an administrator of a business that had 10,000 instances across 3 regions. The finance team worked with Enterprise Support to perform a Cost Optimization analysis and identified 2,500 instances running larger instance types than are necessary for the workload. You are now tasked with resizing them. Automation and Maintenance Window can now take what would be a painful task and turn it into a planned maintenance that one person can execute in a timely manner. 
+
+In this lab we are going to utilize the pre-defined **Automation Document** called **AWS-ResizeInstance**. This example will showcase a multi-step task being executed in a single **Automation** workflow.  
 
 1.  Navigate to [Systems Manager \> Actions & Change \>
     Automation](https://console.aws.amazon.com/systems-manager/automation)

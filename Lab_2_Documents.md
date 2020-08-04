@@ -1,6 +1,12 @@
-In this section we will create a custom document that can be used with
-other Systems Manager capabilities like Distributor, Run, and State
-Manager.
+An AWS Systems Manager document (SSM document) defines the actions that Systems Manager performs on your managed instances. Systems Manager includes more than a dozen pre-configured documents that you can use by specifying parameters at runtime. Documents use JavaScript Object Notation (JSON) or YAML, and they include steps and parameters that you specify.
+
+There are multiple document types for different Systems Manager capabilities.  They can be reviewed here: 
+
+[Systems Manager Documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html)
+
+You can use pre-defined AWS managed documents or create your own depending on your use case.
+
+In this section we will create a custom document that can be used with other Systems Manager capabilities like Distributor, Run, and State Manager.
 
 1.  Navigate to the [Systems Manager
     Console](https://us-east-1.console.aws.amazon.com/systems-manager/documents) \>
@@ -41,7 +47,7 @@ Manager.
     		"Message": {
     			"type": "String",
     			"description": "Magic",
-    			"default": "Installing our amazing app"
+    			"default": "Prepping Application Instance"
     		}
     	},
     	"mainSteps": [{
