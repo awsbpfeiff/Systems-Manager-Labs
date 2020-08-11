@@ -32,21 +32,16 @@ dropped into a Powershell terminal .
 7.  Switch back to the tab with your active session and type following
     commands
 
-    a.  pwd
+    a.  pwd - output should be **/usr/bin**
 
-        i.  It will result in **/usr/bin**
+    b.  cd /app
 
-    b.  cd /
-
-    c.  cd app
-
-    d.  ls
+    c.  ls
 
         i.  You can see our text file "hello.txt" created by the Run Command
             Document above.
 
-    e.  systemctl status httpd -- Apache is now running per our document
-        instructions
+    d.  systemctl status httpd -- Apache is now running
 
 8.  Select **Terminate** at the top right of the session
 
@@ -63,11 +58,10 @@ dropped into a Powershell terminal .
 
 13. Select Actions \> Create Log Group
 
-    a.  **NOTE:** Your role needs to have the appropriate [permissions
-        within
-        CloudWatch](a.%09https:/docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-logging-auditing.html#session-manager-logging-auditing-cloudwatch-logs)
+    **NOTE:** Your role needs to have the appropriate [permissions
+        within CloudWatch](https:/docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-logging-auditing.html#session-manager-logging-auditing-cloudwatch-logs)
 
-        i.  In this lab, the team role has
+    In this lab, the team role has the necessary permissions.  
 
 14. Enter **Systems-Manager-Workshop** as the name
 
