@@ -16,7 +16,7 @@ Configuration Compliance is offered at no additional charge. You only pay for th
 2. Compliance will allow you to sort by Compliance Type, Patch Group,
     or Resource Group
 
-3. Sort by Resource Group
+3. Sort by **Resource Group**
 
 4. You can now review the compliance status of the **Resource Group**
     we created earlier in the lab

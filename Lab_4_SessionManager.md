@@ -1,4 +1,4 @@
-In this lab we will utilize Session Manager to connect to our App
+In this lab we will utilize **Session Manager** to connect to our App
 instances that we executed our Run command against. Session Manager is a
 tool that allows administrators Quickly and securely access your Amazon
 EC2 instances through an interactive one-click browser-based shell or
