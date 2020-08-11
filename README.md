@@ -91,8 +91,8 @@ In this section we will deploy four EC2 managed instances that we will work with
 1. For two of the EC2 instances, add the following tags:
     - For **Key**, enter ```Name```.
     - For **Value**, enter ```App1``` for one instance and ```App2``` for the other.
-    - Choose ** Save**.
+    - Choose **Save**.
 1. For the remaining two EC2 instances, add the following tags:
     - For **Key**, enter ```Name```.
     - For **Value**, enter ```Web1``` for one instance and ```Web2``` for the other.
-    - Choose ** Save**.
+    - Choose **Save**.
