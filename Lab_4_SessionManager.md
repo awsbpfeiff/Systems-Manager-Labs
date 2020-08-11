@@ -38,8 +38,7 @@ dropped into a Powershell terminal .
 
     c.  ls
 
-        i.  You can see our text file "hello.txt" created by the Run Command
-            Document above.
+        i.  You can see our text file "hello.txt" created by the Command Document we executed with Run Command earlier
 
     d.  systemctl status httpd -- Apache is now running
 
