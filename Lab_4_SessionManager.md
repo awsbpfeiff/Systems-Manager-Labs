@@ -57,7 +57,7 @@ dropped into a Powershell terminal .
 
 13. Select Actions \> Create Log Group
 
-    **NOTE:** Your role needs to have the appropriate [permissions
+    **NOTE:** Your role needs to have the [appropriate permissions
         within CloudWatch](https:/docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-logging-auditing.html#session-manager-logging-auditing-cloudwatch-logs)
 
     In this lab, the team role has the necessary permissions.  
