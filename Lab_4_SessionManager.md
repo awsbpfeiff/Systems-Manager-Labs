@@ -68,3 +68,4 @@ We will now configure session logging for CloudWatch Logs.
     ![](./media/image6.png)
 
 This is powerful because now you have an easy interface to review session logs and you can also create metric filters and alarms based on specific log file entries (e.g. sudo). The alarms can then send messages to an SNS topic to alert or initiate automated workflows.
+

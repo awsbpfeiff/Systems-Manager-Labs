@@ -1,3 +1,5 @@
+
+
 In this lab, we will go over the topics that describe how to use AWS AppConfig features to create and deploy a configuration to your hosts or targets.
 
 ### Step 1: Create an application

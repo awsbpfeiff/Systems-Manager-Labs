@@ -8,27 +8,53 @@ An *activation expiration* is a window of time when you can register on\-premise
 
 Every on\-premises server and VM you previously registered remains registered as a Systems Manager managed instance until you explicitly deregister it\. You can deregister a managed instance on the **Managed Instances** page of the Systems Manager console, by using the AWS CLI command [deregister\-managed\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/deregister-managed-instance.html), or by using the API action [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html)\.
 
-**About activation tags**  
-If you create an activation by using either the AWS CLI or AWS Tools for Windows PowerShell, you can specify tags\. Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. Here is an AWS CLI sample command to run on a local Linux machine that includes tags\.
+In this lab we will create a mock managed instance by deploying an EC2 instance without an IAM Role.  We will then create a Hybrid Activation and manually register the instance.  
 
-```
-aws ssm create-activation \ 
-  --default-instance-name MyWebServers \ 
-  --description "Activation for Finance department webservers"
-  --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances \ 
-  --registration-limit 10 \ 
-  --region us-east-2 \ 
-  --tags "Key=Department,Value=Finance"
-```
+## Deploy a Hybrid Instance
 
-If you specify tags when you create an activation, then those tags are automatically assigned to your on\-premises servers and VMs when you activate them\.
+1.  Navigate to the [EC2 Console](https://console.aws.amazon.com/ec2)
 
-You can't add tags to or delete tags from an existing activation\. If you don't want to automatically assign tags to your on\-premises servers and VMs using an activation, then you can add tags to them later\. More specifically, you can tag your on\-premises servers and VMs after they connect to Systems Manager for the first time\. After they connect, they are assigned a managed instance ID and listed in the Systems Manager console with an ID that is prefixed with "mi\-"\. For information about how to add tags to your managed instances without using the activation process, see [ Tagging managed instances](tagging-managed-instances.md)\.
+2.  Go to Instances
 
-**Note**  
-You can't assign tags to an activation if you create it by using the Systems Manager console\. You must create it by using either the AWS CLI or Tools for Windows PowerShell\.
+3.  Launch Instance
 
-If you no longer want to manage an on\-premises server or virtual machine \(VM\) by using Systems Manager, you can deregister it\. For information, see [Deregistering managed instances in a hybrid environment](systems-manager-managed-instances-advanced-deregister.md)\.
+    a.  Amazon Linux 2 AMI (HVM)
+
+    b.  t2.small
+
+    c.  Configure instance details
+
+    d.  Number of instances: 1
+
+    e.  Default VPC
+
+    f.  No preference on subnet
+
+    g.  Ensure auto-assign public IP is enabled
+
+    h.  IAM Role: **DO NOT APPLY AN IAM ROLE TO THE INSTANCE**
+
+    i.  Default Storage
+
+    j.  Leave Tags as is
+
+    k.  Create a new Security Group -- Allow TCP 22 from anywhere
+
+    l.  Launch
+
+    m.  Select Key Pair that you previously created (this will be used
+        to retrieve the admin password for the instance)
+
+4.  Go back to view instances and ensure that all transition to an
+    Instance State of running
+
+5.  Navigate to [Systems Manager \> Instances & Nodes \> Managed
+    Instances](https://console.aws.amazon.com/systems-manager/managed-instances)
+
+6.  Ensure that the new instance is listed (if not check your IAM role
+    attached to the instance)
+
+7.  Grab the instance ID as you will need this for the next section
 
 ## Create an activation \(console\)<a name="create-managed-instance-activation-console"></a>
 
