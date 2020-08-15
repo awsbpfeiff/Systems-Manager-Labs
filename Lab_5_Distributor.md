@@ -6,7 +6,7 @@ After you create a package in Distributor, which creates an AWS Systems Manager 
 
 * On a schedule by using **AWS Systems Manager State Manager**
 
-**Reference Video =** <https://www.youtube.com/watch?v=AvQWkfgEQI8>
+[Reference Video](https://www.youtube.com/watch?v=AvQWkfgEQI8)
 
 1.  You will need to make an S3 bucket to store the package in:
 
