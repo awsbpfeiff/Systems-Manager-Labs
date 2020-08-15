@@ -11,7 +11,7 @@ In this section we will run our newly created document on our managed instances 
     - Select ```Owner : Owned by me```.
     - Select the document ```org-install-app```.
 1. For **Document version**, select **Latest version at runtime**.
-1. In the **Commands parameters** section, leave the default value for our parameter **Message** as ```Prepping Application Instance```.
+1. In the **Commands parameters** section, leave the default value for our parameter **Message** as ```Prepping Web Instance```.
 1. In the **Targets** section, we will select a **Resource Group** by performing the following steps:
     - Select **Choose a resource group**.
     - For **Resource group**, choose the ```Web``` resource group we created earlier in Resource Groups + Tags section.

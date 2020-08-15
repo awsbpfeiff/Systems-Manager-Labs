@@ -23,9 +23,7 @@ In this lab we will utilize Session Manager to connect to our Web instances that
     - In the **Sessions** section, you can now see the active session you've established.
 1. Switch back to the tab with your active session and type following commands:
     ```
-    pwd
-    cd /
-    cd app
+    cd /app
     ls
     ```
     ![](./media/session-manager.png)
@@ -36,10 +34,10 @@ In this lab we will utilize Session Manager to connect to our Web instances that
     - Apache is now running per our document instructions.
     ![](./media/session-manager-apache.png)
 
-1. Select **Terminate** to close the session.
-1. Go back to **Session Manager** and select refresh. You can see the session was ended and there are no running sessions.
-1. Select the **Session History** tab.
-1. You will see your previous session in a ```Terminating``` state. 
+2. Select **Terminate** to close the session.
+3. Go back to **Session Manager** and select refresh. You can see the session was ended and there are no running sessions.
+4. Select the **Session History** tab.
+5. You will see your previous session in a ```Terminating``` state. 
 
 We will now configure session logging for CloudWatch Logs.
 
@@ -67,5 +65,9 @@ We will now configure session logging for CloudWatch Logs.
 1. Expand the messages and you will see a full output of the terminal session.
     ![](./media/image6.png)
 
-This is powerful because now you have an easy interface to review session logs and you can also create metric filters and alarms based on specific log file entries (e.g. sudo). The alarms can then send messages to an SNS topic to alert or initiate automated workflows.
+This is a powerful integration because now you have an easy interface to:
+
+* Review session logs
+* Create [Metric Filters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/MonitoringLogData.html) and alarms based on specific log file entries (e.g. sudo)
+* CloudWatch Alarms can then carry out actions like shutdown an instance or send the Alert details to an SNS topic
 

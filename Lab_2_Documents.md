@@ -18,7 +18,7 @@ In this section we will create a custom document that can be used with other Sys
 1.  Select **Create Command or session**
     - For **Name**, enter ```org-install-app```.
     - For **Target type - *optional***, leave the value blank for now.
-        - Target Type allows you to restric the types of resources the document can run against.
+        - Target Type allows you to restrict the types of resources the document can run against.
     - For **Document type - *optional***, leave **Command document** as we will use Run command to install the package.
     - For **Content**, copy and paste the below snippet:
 ```
@@ -28,13 +28,13 @@ In this section we will create a custom document that can be used with other Sys
     "parameters": {
         "Message": {
             "type": "String",
-            "description": "Magic",
-            "default": "Prepping Application Instance"
+            "description": "Preparing Web Instance",
+            "default": ""
         }
     },
     "mainSteps": [{
         "action": "aws:runShellScript",
-        "name": "Magic",
+        "name": "prepare-web-instance",
         "inputs": {
             "runCommand": [
                 "echo {{Message}}",
