@@ -34,10 +34,10 @@ In this lab we will utilize Session Manager to connect to our Web instances that
     - Apache is now running per our document instructions.
     ![](./media/session-manager-apache.png)
 
-2. Select **Terminate** to close the session.
-3. Go back to **Session Manager** and select refresh. You can see the session was ended and there are no running sessions.
-4. Select the **Session History** tab.
-5. You will see your previous session in a ```Terminating``` state. 
+1. Select **Terminate** to close the session.
+1. Go back to **Session Manager** and select refresh. You can see the session was ended and there are no running sessions.
+1. Select the **Session History** tab.
+1. You will see your previous session in a ```Terminating``` state. 
 
 We will now configure session logging for CloudWatch Logs.
 
@@ -63,7 +63,7 @@ We will now configure session logging for CloudWatch Logs.
 1. Once the status is ```Terminated```, select the output location **CloudWatch Logs**.
 1. In CloudWatch Logs you will see that inside your Systems Manager Log Group a new Log Stream was created and utilized the ID of the Session Manager session you just ended.
 1. Expand the messages and you will see a full output of the terminal session.
-    ![](./media/image6.png)
+    ![](./media/session-manager-cloudwatch-log-group.png)
 
 This is a powerful integration because now you have an easy interface to:
 

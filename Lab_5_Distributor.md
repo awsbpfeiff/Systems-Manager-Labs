@@ -1,67 +1,70 @@
-Distributor is a capability that allows you to create custom packages
-for deployment to your Managed Instances. This could be helpful for
-application or tools deployment to your fleet. In this scenario we will
-deploy Powershell Core to a Linux Managed Instance.
+AWS Systems Manager Distributor lets you package your own software—and find AWS-provided agent software packages, such as AmazonCloudWatchAgent, or third-party packages such as Trend Micro—to install on AWS Systems Manager managed instances. Distributor publishes resources, such as software packages, to AWS Systems Manager managed instances. Publishing a package advertises specific versions of the package's document—a Systems Manager document that you create when you add the package in Distributor—to managed instances that you identify by managed instance IDs, AWS account IDs, tags, or an AWS Region.
+
+After you create a package in Distributor, which creates an AWS Systems Manager document, you can install the package in one of the following ways:
+
+* One time by using **AWS Systems Manager Run Command**
+
+* On a schedule by using **AWS Systems Manager State Manager**
 
 **Reference Video =** <https://www.youtube.com/watch?v=AvQWkfgEQI8>
 
-1.  Need to make an S3 bucket to store the package in
+1.  You will need to make an S3 bucket to store the package in:
 
-    a.  Navigate to [S3](https://s3.console.aws.amazon.com/s3)
+    - Navigate to [S3](https://s3.console.aws.amazon.com/s3)
 
-    b.  Select Create Bucket
+    - Select **Create Bucket**
 
-    c.  Enter: YOURFIRSTNAME10-sm
+    - For **Bucket Name** Enter: **YOURFIRSTNAME10-sm**
 
-    d.  Region: us-east (N. Virginia)
+    - For **Region** ensure ```us-east-1``` is selected
 
-    e.  Keep all defaults
+    - For **Bucket settings for Block Public Access** ensure the check box is selected
 
-    f.  Block all public access
+    - **Keep all defaults** for the remaining items
 
-    g.  Create Bucket
+    - Select **Create Bucket**
 
-2.  Download the following package locally:
+1.  Download the following package locally:
 
-    a.  <https://github.com/PowerShell/PowerShell/releases/download/v6.2.4/powershell-6.2.4-1.rhel.7.x86_64.rpm>
+    [PowerShell v6.2.4](https://github.com/PowerShell/PowerShell/releases/download/v6.2.4/powershell-6.2.4-1.rhel.7.x86_64.rpm)
 
-3.  Navigate to [Systems Manager \> Instances & Nodes \>
+1.  Navigate to [Systems Manager \> Instances & Nodes \>
     Distributor](https://console.aws.amazon.com/systems-manager/distributor)
 
-4.  Select **Create Package**
+1.  Select **Create Package**
 
-5.  Select **Simple Package** (Advanced allows you to specify your own
+1.  Select **Simple Package** (Advanced allows you to specify your own
     install/uninstall scripts)
 
-6.  Enter: **PowerShell-linux** for the name
+1.  Enter: **PowerShell-linux** for the name
 
-7.  Select the bucket you made in step 1
+1.  Select the bucket you made in 
 
-8.  Enter a prefix of Linux
+1.  Enter a prefix of Linux
 
-9.  Select **Add Software** under Upload
+1.  Select **Add Software** under Upload
 
-    a.  Select the rpm you downloaded in step 2
+    - Select the rpm you downloaded in step 2
 
-    b.  Set the **Target Platform** as amazon
+    - Set the **Target Platform** as amazon
 
-    c.  Set Platform Version as \_any
+    - Set Platform Version as \_any
 
-    d.  Set **Architecture** as x86\_64
+    - Set **Architecture** as x86\_64
 
-    e.  If you expanded scripts you can see that distributor has already
+    - If you expanded scripts you can see that distributor has already
         provided the appropriate install / uninstallation scripts
 
-    f.  ![](./media/image7.png)
+    ![](./media/image7.png)
 
-10. If you expand **Manifest** you will see the package you are
+1. If you expand **Manifest** you will see the package you are
     installing and the which installers to use depending on OS
 
-    a.  ![](./media/image8.png)
+    ![](./media/image8.png)
 
-11. Select **Create Package**
+1. Select **Create Package**
 
-12. Your manifest file and package data will be uploaded to the
+1. Your manifest file and package data will be uploaded to the
     specified S3 bucket
 
 ### Install Custom Package
