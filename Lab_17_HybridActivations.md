@@ -1,4 +1,4 @@
-To set up servers and virtual machines \(VMs\) in your hybrid environment as Managed Instances, you need to create a managed\-instance activation\. After you successfully complete the activation, you *immediately* receive an Activation Code and Activation ID\. You specify this Code/ID combination when you install SSM Agent on servers and VMs in your hybrid environment\. The Code/ID provides secure access to the Systems Manager service from your managed instances\.
+A hybrid environment includes on-premises servers and virtual machines (VMs) that have been configured for use with Systems Manager, including VMs in other cloud environments. To set up servers and virtual machines \(VMs\) in your hybrid environment as Managed Instances, you need to create a managed\-instance activation\. After you successfully complete the activation, you *immediately* receive an Activation Code and Activation ID\. You specify this Code/ID combination when you install SSM Agent on servers and VMs in your hybrid environment\. The Code/ID provides secure access to the Systems Manager service from your managed instances\.
 
 **Important**  
 Systems Manager immediately returns the Activation Code and ID to the console or the command window, depending on how you created the activation\. Copy this information and store it in a safe place\. If you navigate away from the console or close the command window, you might lose this information\. If you lose it, you must create a new activation\. 
@@ -14,47 +14,33 @@ In this lab we will create a mock managed instance by deploying an EC2 instance 
 
 1.  Navigate to the [EC2 Console](https://console.aws.amazon.com/ec2)
 
-2.  Go to Instances
+1.  Go to Instances
 
-3.  Launch Instance
+1.  Launch Instance
+    - AMI: ```Amazon Linux 2 AMI (HVM)```
+    - Instance size: ```t2.small```
+    - Configure instance details
+        -  Number of instances: 1
+        - Default VPC
+        - No preference on subnet
+        - Ensure auto-assign public IP is enabled
+        - IAM Role: **DO NOT APPLY AN IAM ROLE TO THE INSTANCE**
+        - Default Storage
+        - Leave Tags as is
+        - Create a new Security Group -- Allow TCP 22 from anywhere
+    - Launch
+    - Select Key Pair that you previously created (this will be used to retrieve the admin password for the instance)
 
-    a.  Amazon Linux 2 AMI (HVM)
-
-    b.  t2.small
-
-    c.  Configure instance details
-
-    d.  Number of instances: 1
-
-    e.  Default VPC
-
-    f.  No preference on subnet
-
-    g.  Ensure auto-assign public IP is enabled
-
-    h.  IAM Role: **DO NOT APPLY AN IAM ROLE TO THE INSTANCE**
-
-    i.  Default Storage
-
-    j.  Leave Tags as is
-
-    k.  Create a new Security Group -- Allow TCP 22 from anywhere
-
-    l.  Launch
-
-    m.  Select Key Pair that you previously created (this will be used
-        to retrieve the admin password for the instance)
-
-4.  Go back to view instances and ensure that all transition to an
+1.  Go back to view instances and ensure that all transition to an
     Instance State of running
 
-5.  Navigate to [Systems Manager \> Instances & Nodes \> Managed
+1.  Navigate to [Systems Manager \> Instances & Nodes \> Managed
     Instances](https://console.aws.amazon.com/systems-manager/managed-instances)
 
-6.  Ensure that the new instance is listed (if not check your IAM role
+1.  Ensure that the new instance is listed (if not check your IAM role
     attached to the instance)
 
-7.  Grab the instance ID as you will need this for the next section
+1.  Grab the instance ID as you will need this for the next section
 
 ## Create an activation \(console\)<a name="create-managed-instance-activation-console"></a>
 
@@ -76,13 +62,12 @@ In this lab we will create a mock managed instance by deploying an EC2 instance 
 
 1. In the ** IAM role name** section, choose a service role option that enables your servers and VMs to communicate with AWS Systems Manager in the cloud:
 
-   1. Choose **Use the system created default command execution role** to use a role and managed policy created by AWS\. 
+   - Choose **Use the system created default command execution role** to use a role and managed policy created by AWS\. 
 
-   1. Choose **Select an existing custom IAM role that has the required permissions** to use the optional custom role you created earlier\.
+   - Choose **Select an existing custom IAM role that has the required permissions** to use the optional custom role you created earlier\.
 
 1. In the **Activation expiry date** field, specify an expiration date for the activation\. 
-**Note**  
-If you want to register additional managed instances after the expiry date, you must create a new activation\. The expiry date has no impact on registered and running instances\.
+**Note**  If you want to register additional managed instances after the expiry date, you must create a new activation\. The expiry date has no impact on registered and running instances\.
 
 1. \(Optional\) In the **Default instance name** field, specify a name\. 
 
