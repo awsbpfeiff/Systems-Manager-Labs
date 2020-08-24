@@ -19,72 +19,54 @@ instances to target.
 
 ### High-level Objectives
 
--   Create a custom patch baseline
+*   Create a custom patch baseline
 
--   Create a patch group to associate with the custom patch baseline
+*   Create a patch group to associate with the custom patch baseline
 
 ### Create Patch Baseline
 
 1.  Under **Instances and Nodes** in the **AWS Systems
     Manager** navigation bar, select **Patch Manager**.
 
-2.  Select the **View predefined patch baselines** link under
+1.  Select the **View predefined patch baselines** link under
     the **Configure patching** button on the upper right.
 
-3.  Select **Create patch baseline**.
+1.  Select **Create patch baseline**.
 
-4.  On the **Create patch baseline** page in the **Provide patch
+1.  On the **Create patch baseline** page in the **Provide patch
     baseline details** section:
+    -  Enter a **Name** for your custom patch baseline, such as ```AmazonLinuxSecAndNonSecBaseline```.
+    - Optionally enter a description, such as Amazon Linux patch baseline including security and non-security patches.
+    - Select **Amazon Linux 2** from the list.
 
-    a.  Enter a **Name** for your custom patch baseline, such
-        as **AmazonLinuxSecAndNonSecBaseline**.
-
-    b.  Optionally enter a description, such as Amazon Linux patch
-        baseline including security and non-security patches.
-
-    c.  Select **Amazon Linux 2** from the list.
-
-5.  In the **Approval rules** section:
-
-    a.  Examine the options in the lists and ensure
-    that **Product**, **Classification**, and **Severity** have values
-    of **All**.
-
-    b.  Leave the **Auto approval delay** at its default of **0 days**.
-
-    c.  Change the value of **Compliance reporting -
-    optional** to **Critical**.
-
-    d.  Select **Add another rule**.
-
-    e.  In the new rule, change the value of **Compliance reporting -
-    optional** to **Medium**.
-
-    f.  Check the box under **Include non-security updates** to include all
-    Amazon Linux 2 updates when patching.
+1.  In the **Approval rules** section:
+    - Examine the options in the lists and ensure that **Product**, **Classification**, and **Severity** have values of **All**.
+    - Leave the **Auto approval delay** at its default of **0 days**.
+    - Change the value of **Compliance reporting - optional** to **Critical**.
+    - Select **Add another rule**.
+    - In the new rule, change the value of **Compliance reporting - optional** to **Medium**.
+    - Check the box under **Include non-security updates** to include all Amazon Linux 2 updates when patching.
 
 If an approved patch is reported as missing, the option you select
 in **Compliance reporting**, such as Critical or Medium, determines the
 severity of the compliance violation reported in System
 Manager **Compliance**.
 
-1.  In the **Patch exceptions** section in the **Rejected patches -
-    optional** text box, enter **system-release.\*** 
-
-    a.  This will [reject
+1.  In the **Patch exceptions** section in the **Rejected patches - optional** text box, enter **system-release.\** 
+    - This will [reject
         patches](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html) to
         new Amazon Linux releases that may advance you beyond the [Patch
         Manager supported operating
         systems](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-supported-oses.html) prior
         to your testing new releases.
 
-2.  For Linux operating systems, you can optionally define
+1.  For Linux operating systems, you can optionally define
     an [alternative patch source
     repository](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-alt-source-repository.html).
     Select the **X** in the **Patch sources** area to remove the empty
     patch source definition.
 
-3.  Select **Create patch baseline** and you will go to the **Patch
+1.  Select **Create patch baseline** and you will go to the **Patch
     Baselines** page where the AWS provided default patch baselines, and
     your custom baseline, are displayed.
 
@@ -108,36 +90,36 @@ any value (for example, web servers) but the key must be Patch Group.
 
 1.  Navigate to the [EC2 Console](https://console.aws.amazon.com/ec2)
 
-2.  Go to **tags** on the left navigation panel.
+1.  Go to **tags** on the left navigation panel.
 
-3.  Select **Manage Tags**
+1.  Select **Manage Tags**
 
-4.  Select instances with Name App1 and App2
+1.  Select instances with Name App1 and App2
 
-5.  Add Tag
+1.  Add Tag
 
-6.  **Key:** Patch Group
+1.  **Key:** Patch Group
 
-7.  **Value:** App
+1.  **Value:** App
 
-8.  Select instances with Name Web1 and Web2
+1.  Select instances with Name Web1 and Web2
 
-9.  Add Tag
+1.  Add Tag
 
-10. **Key:** Patch Group
+1. **Key:** Patch Group
 
-11. **Value:** Web
+1. **Value:** Web
 
-12. Navigate back to [Systems Manager \> Patch Manager \> Patch
+1. Navigate back to [Systems Manager \> Patch Manager \> Patch
     Baselines](https://console.aws.amazon.com/systems-manager/patch-manager/baselines)
 
-13. Select the Baseline you created in the previous part
+1. Select the Baseline you created in the previous part
     (AmazonLinuxSecAndNonSecBaseline)
 
-14. Go to Actions and Modify Patch
+1. Go to Actions and Modify Patch
     Group![](./media/image14.png)
 
-15. Type in App and Add the Patch Group to the Baseline
+1. Type in App and Add the Patch Group to the Baseline
 
 From here you could utilize **AWS-RunPatchBaseline** pre-defined
 document to scan or patch your instances. Instead we are going to chain
