@@ -14,65 +14,62 @@ The following list describes the types of tasks you can perform with State Manag
 
 * Run scripts on Linux and Windows managed instances throughout their lifecycle
 
-In this section we will configure a **State Manager Association** that will update the Systems Manager Agent on the registered Managed Instances.  
+In this lab we will configure a **State Manager Association** that will update the Systems Manager Agent on the registered Managed Instances.  
 
 1.  Navigate to [Systems Manager \> Instances & Nodes \> State
     Manager](https://console.aws.amazon.com/systems-manager/state-manager)
 
-2. Select Create Association (top right)
+1. Select Create Association (top right)
 
-3. **Name:** UpdateSSMAgent
+    - For **Name** use UpdateSSMAgent
 
-4. Search for **AWS-UpdateSSMAgent** and select that as the Document
-    for the Association
+    - For **Document** search for **AWS-UpdateSSMAgent** for the Association
 
-5. Parameters leave as the Default (false)
+    - For **Parameters** leave as the Default
 
-6. **Targets:** Selecting all managed instances in this region under this
-    account
+    - For **Targets** select all **Choose all instances**
 
-7. **Specify schedule:** On schedule (can run one for initial
-    provisioning) / every 30 mins (for the lab)
+    - For **Specify schedule** select **On schedule** and chose **CRON schedule builder** and have the **Association** run every 30 minutes
 
-   1. If this was a real world scenario you would configure the frequency to be 14 days per Systems Manager best practices
+      - If this was a real world scenario you would configure the frequency to be 14 days per Systems Manager best practices
 
-8. **Compliance:** High
+    - For **Advanced Options > Compliance** select High
 
-9.  This is specifying how you like this ranked within the Compliance
-    dashboard -- if the agent is not updated you will see a High
-    severity non-compliance alert
+      - This is specifying how you like this ranked within the Compliance
+        dashboard -- if the agent is not updated you will see a High
+        severity non-compliance alert
 
-10. **Rate Control:** Target 1 and Error 1
+    - For **Rate Control** select **Target** to 1 and **Error** to 1
 
-11. Leave writing output to S3 bucket unchecked for now
+    - Leave writing output to S3 bucket unchecked for now
 
-12. Select Create Association
+1. Select **Create Association**
 
-13. ![](./media/image10.png)
+![](./media/image10.png)
 
-14. Select on the Association ID to review the Association details
+1. Select the radio button next to the newly created **Association** 
 
-15. Then Select Apply Association Now (upper right corner)
+1. Then Select **Apply Association Now** (upper right corner)
 
-16. Select **Apply**
+1. Chose **Apply**
 
-17. Select the Association ID to review the Association details
+1. Select radio button next to the **Association ID** to review the **Association details**
 
-18. Select **Execution History**
+1. Select **Execution History**
 
-19. Select the most recent **Execution ID**
+1.  Select the most recent **Execution ID**
 
 ![](./media/image11.png)
 
-21. Select the **Output** of one of the Resource IDs
+1. Select the **Output** of one of the Resource IDs
 
 ![](./media/image12.png)
 
-22. A new tab will open -- Expand **Step 1 -- Output**
+1. A new tab will open -- Expand **Step 1 -- Output**
 
 ![](./media/image13.png)
 
-23. You can see that output of the **Document** being executed and
+1. You can see that output of the **Document** being executed and
     updating the SSM Agent
 
-24. If there are no updates the installation is skipped
+1. If there are no updates the installation is skipped

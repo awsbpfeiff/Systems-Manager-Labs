@@ -14,7 +14,7 @@ After you create a package in Distributor, which creates an AWS Systems Manager 
 
     - Select **Create Bucket**
 
-    - For **Bucket Name** Enter: **YOURFIRSTNAME10-sm**
+    - For **Bucket Name** Enter: **YOURFIRSTNAME10-sm-distributor**
 
     - For **Region** ensure ```us-east-1``` is selected
 
@@ -38,27 +38,27 @@ After you create a package in Distributor, which creates an AWS Systems Manager 
 
 1.  Enter: **PowerShell-linux** for the name
 
-1.  Select the bucket you made in 
+1.  Select the bucket you made in the previous step
 
-1.  Enter a prefix of Linux
+1.  Enter a prefix of **PowerShell-Linux**
 
 1.  Select **Add Software** under Upload
 
-    - Select the rpm you downloaded in step 2
+    - Select the **PowerShell rpm** you downloaded in step 2
 
-    - Set the **Target Platform** as amazon
+    - Set the **Target Platform** as ```amazon```
 
-    - Set Platform Version as \_any
+    - Set Platform Version as ```_any```
 
-    - Set **Architecture** as x86\_64
+    - Set **Architecture** as ```_any```
 
-    - If you expanded scripts you can see that distributor has already
-        provided the appropriate install / uninstallation scripts
+1. If you expand **Scripts** you can see that distributor has already
+        provided the appropriate installation / uninstallation scripts
 
     ![](./media/image7.png)
 
 1. If you expand **Manifest** you will see the package you are
-    installing and the which installers to use depending on OS
+    installing and the which package manager to use depending on the selected Operating Systems
 
     ![](./media/image8.png)
 
@@ -79,3 +79,5 @@ parameter. Install one time does the same preparation but uses **Run
 Command**.
 
 ![](./media/image9.png)
+
+
