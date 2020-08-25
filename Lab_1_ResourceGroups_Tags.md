@@ -18,7 +18,7 @@ You can specify a resource group as the target for the following Systems Manager
 
 * A package installation or update operation in Distributor.
 
-This section will cover creating a Resource Group and some tags that will be used later on in the Patch Manager lab.  
+In this lab we will cover creating a Resource Group and some tags that will be used later on in the Patch Manager lab.  
 
 ### Getting Started
 

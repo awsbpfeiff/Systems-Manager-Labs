@@ -13,7 +13,7 @@ installed by Patch Manager the patched instance is rebooted**.
 \* **Always test patches thoroughly before deploying to production
 environments. This is a customer owned responsibility.**
 
-In this section we will create Patch Baselines and Patch Groups. These
+In this lab we will create Patch Baselines and Patch Groups. These
 will be used to decide which patches to apply to our instances and which
 instances to target.
 

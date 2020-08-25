@@ -8,6 +8,8 @@ After you create a package in Distributor, which creates an AWS Systems Manager 
 
 [Reference Video](https://www.youtube.com/watch?v=AvQWkfgEQI8)
 
+In this lab we will create a custom package that deploys Powershell core to Linux Managed Instances.  
+
 1.  You will need to make an S3 bucket to store the package in:
 
     - Navigate to [S3](https://s3.console.aws.amazon.com/s3)

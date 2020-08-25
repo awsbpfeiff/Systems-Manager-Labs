@@ -2,7 +2,7 @@ AWS Systems Manager Parameter Store provides secure, hierarchical storage for co
 
 [Supported Services](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html)
 
-In this section you will create a Secure String parameter and retrieve it using the Console and CLI. 
+In this lab you will create a Secure String parameter and retrieve it using the Console and CLI. 
 
 1.  Navigate to [Systems Manager \> Application Management \> Parameter
     Store](https://console.aws.amazon.com/systems-manager/parameters)

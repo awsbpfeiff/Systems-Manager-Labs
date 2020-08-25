@@ -7,26 +7,40 @@ In this lab we will enable Explorer and review the options for multi-region mult
 1.  Navigate to [Systems Manager \> Operations Management \>
     Explorer](https://console.aws.amazon.com/systems-manager/explorer?region=us-east-1)
 
-2.  Select **Get started**
+1.  Choose **Get started**
 
-3.  For tags for reporting -- remove the cloudformation default key (we
-    can configure these later on) and select **Enable Explorer**
+1.  Leave all settings default
 
-![](./media/image37.png)
+1.  Select **Enable Explorer**
 
-4.  You are presented with an option to configure resource data sync --
+    ![](./media/explorer-enable.png)
+
+1.  You are presented with an option to configure **resource data sync** --
     Since we are in the lab and using a single account / single region
     this won't be necessary but worth visualizing
 
-![](./media/image38.png)
+    ![](./media/image38.png)
 
-    a.  This makes it easy to select:
+    -  This makes it easy to select and configure data collection for:
 
-        i.  Select regions you are active in
+       - Only regions your organization is active in
 
-        ii. Select all accounts in an org
+       - Select all accounts in an **AWS Organization**
 
-        iii. EVEN COOLER select OUs within an org
+       - Select OUs within an org
 
-5.  Select **Settings** (top right) \> Under Tags for Reporting \> We
+1.  Select **Settings** (top right) \> Under Tags for Reporting \> We
     can enter Patch Group and SSM Managed and then select **Save**
+    - Enter or select up to five resource tag keys for OpsData filtering in the Explorer dashboard.
+    - You can now filter the dashboard view using the tags:
+      - The **Instance count** widget can be filtered with the defined tags
+      - You can also do a an overall filter on the dataset using tags under **OpsData Filter**
+    ![](./media/explorer-tags.png)
+1.  Several key items to consider when deciding to use **Explorer** within your environment
+    - When you enable a **data resource sync** for all accounts and regions you can get a single dashboard for operational data 
+    - If you enable **Compute Optimizer** in **Settings** and go into the **Instance Count** widget and click on a specific on a specific tag grouping you will get rightsizing recommendations focused on that group of instances
+
+    ![](./media/explorer-compute-optimizer.png)
+
+    - If you enable [**Trusted Advisor**](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-trusted-advisor-and-phd.html) and **Support Cases** you can get an aggregated view of checks and cases across all of your accounts enabled in the **resource data sync**
+    - You can create 5 **resource data syncs** so you can control which data is included in the dashboard

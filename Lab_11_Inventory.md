@@ -1,6 +1,6 @@
 AWS Systems Manager Inventory provides visibility into your Amazon EC2 and on-premises computing environment. You can use Inventory to collect metadata from your managed instances. You can store this metadata in a central Amazon Simple Storage Service (Amazon S3) bucket, and then use built-in tools to query the data and quickly determine which instances are running the software and configurations required by your software policy, and which instances need to be updated. You can configure Inventory on all of your managed instances by using a one-click procedure. You can also configure and view inventory data from multiple AWS Regions and accounts.
 
-In this lab, we will enable **Inventory** which leverages **State Manager** to create an **Association** that runs the pre-defined document AWS-GatherSoftwareInventory on an interval that you specify.  We will also configure a **Resource Data Sync** which sends the Inventory data to an S3 bucket for further processing and analysis.  
+In this lab we will enable **Inventory** which leverages **State Manager** to create an **Association** that runs the pre-defined document AWS-GatherSoftwareInventory on an interval that you specify.  We will also configure a **Resource Data Sync** which sends the Inventory data to an S3 bucket for further processing and analysis.  
 
 1.  Navigate to [Systems Manager \> Instances & Nodes \>
     Inventory](https://console.aws.amazon.com/systems-manager/inventory)

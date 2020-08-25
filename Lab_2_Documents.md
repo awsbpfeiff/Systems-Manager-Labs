@@ -6,7 +6,7 @@ There are multiple document types for different Systems Manager capabilities.  T
 
 You can use pre-defined AWS managed documents or create your own depending on your use case.
 
-In this section we will create a custom document that can be used with other Systems Manager capabilities Run Command and State Manager.
+In this lab we will create a custom document that can be used with other Systems Manager capabilities Run Command and State Manager.
 
 1. Open the AWS Systems Manager console at https://us-east-1.console.aws.amazon.com/systems-manager.
 1. In the navigation pane, select **Documents** under the **Shared Resources** section.

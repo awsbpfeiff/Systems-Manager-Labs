@@ -10,7 +10,7 @@ You can use AWS Systems Manager Configuration Compliance to scan your fleet of m
 
 Configuration Compliance is offered at no additional charge. You only pay for the AWS resources that you use.
 
-In this lab, we will cover accessing the Compliance dashboard and 
+In this lab we will cover accessing the Compliance dashboard and 
 
 1.  Navigate to [Systems Manager \> Instances & Nodes \>
     Compliance](https://console.aws.amazon.com/systems-manager/compliance)

@@ -2,7 +2,7 @@ AWS Systems Manager Run Command lets you remotely and securely manage the config
 
 Administrators use Run Command to perform the following types of tasks on their managed instances: install or bootstrap applications, build a deployment pipeline, capture log files when an instance is terminated from an Auto Scaling group, and join instances to a Windows domain, to name a few.
 
-In this section we will run our newly created document on our managed instances using Run command.
+In this lab we will execute our newly created document on our managed instances using Run command.
 
 1. Open the AWS Systems Manager console at https://console.aws.amazon.com/systems-manager/.
 1. In the navigation pane, choose **Run Command**.
