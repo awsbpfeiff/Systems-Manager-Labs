@@ -93,18 +93,18 @@ In this lab we will enable OpsCenter, create a new OpsItem, trigger the OpsItem,
 
     - You will now see the new CW rule we created
 
-![](./media/image30.png)
+    ![](./media/image30.png)
 
-- Navigate to [EC2](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=tag:Name)
+    - Navigate to [EC2](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=tag:Name)
 
-1.  Select **Web2** and terminate it
+    - Select **Web2** and terminate it
 
-    a.  Highlight instance **\> Actions \> Instance State \> Terminate**
+      - Highlight instance **\> Actions \> Instance State \> Terminate**
 
-1.  Navigate to
+1. Navigate to
     [OpsCenter](https://console.aws.amazon.com/systems-manager/opsitems/?region=us-east-1#activeTab=REPORTING)
 
-1.  You will now see OpsItems by Source and age -- Grouped by source:
+1. You will now see OpsItems by Source and age -- Grouped by source:
     EC2
 
     -  Under **count** select the number or go to OpsItem status summary and select one of the open items
@@ -141,7 +141,7 @@ In this lab we will enable OpsCenter, create a new OpsItem, trigger the OpsItem,
 
         - CloudFormation stack resources shows the relevant stack data
 
-.  The last item to cover is under OpsItems \> Configure Sources is change the Severity it is
+1.  The last item to cover is under OpsItems \> Configure Sources is change the Severity it is
     alerted as (think of the compliance dashboard we did before), Category of the event, and the state
 
     ![](./media/image33.png)
