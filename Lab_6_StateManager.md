@@ -45,7 +45,7 @@ In this lab we will configure a **State Manager Association** that will update t
 
 1. Select **Create Association**
 
-![](./media/image10.png)
+  ![](./media/image10.png)
 
 1. Select the radio button next to the newly created **Association** 
 
@@ -59,15 +59,15 @@ In this lab we will configure a **State Manager Association** that will update t
 
 1.  Select the most recent **Execution ID**
 
-![](./media/image11.png)
+  ![](./media/image11.png)
 
 1. Select the **Output** of one of the Resource IDs
 
-![](./media/image12.png)
+  ![](./media/image12.png)
 
 1. A new tab will open -- Expand **Step 1 -- Output**
 
-![](./media/image13.png)
+  ![](./media/image13.png)
 
 1. You can see that output of the **Document** being executed and
     updating the SSM Agent
