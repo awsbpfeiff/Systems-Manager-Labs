@@ -101,7 +101,7 @@ parameter. Install one time does the same preparation but uses **Run Command**.
 
 1. Select **App1** and **App2** as the instances that will get the new **Distributor** package applied
 
-1. Leave the remaining configuration details as default -- 
+1. Leave the remaining configuration details as default
 
 2. **EXCEPT:** Under **Output Options** leave the check for **Enable writing to an S3 bucket**
 
