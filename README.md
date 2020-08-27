@@ -1,6 +1,6 @@
 # AWS Systems Manager Workshop Introduction
 
-This workshop is intended to provide a 200-300 level hands on experience with core AWS Systems Manager capabilities. Lets start with a brief overview of AWS Systems Manager capabilities: 
+This workshop is intended to provide a 200 level hands on experience with core AWS Systems Manager capabilities. Lets start with a brief overview of AWS Systems Manager capabilities: 
 
 1.	**Resource Groups** - Group AWS resources together by any purpose or activity you choose, such as application, environment, region, project, campaign, business unit, or software lifecycle.
 2.	**Documents** - Centrally define the configuration options, policies, and the actions that Systems Manager performs on your managed instances and other AWS resources.
