@@ -103,29 +103,29 @@ parameter. Install one time does the same preparation but uses **Run Command**.
 
 1. Leave the remaining configuration details as default
 
-2. **EXCEPT:** Under **Output Options** leave the check for **Enable writing to an S3 bucket**
+1. **EXCEPT:** Under **Output Options** leave the check for **Enable writing to an S3 bucket**
 
     - Chose the bucket you created earlier from the drop down and enter **Kinesis-Agent-logs** as the prefix
 
     ![](./media/distributor-s3-log.png)
 
-3. Choose **Run**
+1. Choose **Run**
 
     ![](./media/distributor-run.png)
 
-4. You are now redirected to the to the **Run Command** progress for the distributor package deployment
+1. You are now redirected to the to the **Run Command** progress for the distributor package deployment
 
     ![](./media/distributor-run-command-progress.png)
 
-5. Hit the refresh button:
+1. Hit the refresh button:
 
     ![](media/distributor-refresh.png)
 
-6. The command should have completed successfully.  Under **Targets and Outputs** Highlight the radio button next to instance ID and select **View Output**
+1. The command should have completed successfully.  Under **Targets and Outputs** Highlight the radio button next to instance ID and select **View Output**
 
     ![](./media/distributor-view-output.png)
 
-7. Click on the **Amazon S3** link to bring you over to the full log output.  The **Run Command** console will only show 2500 characters of the log output. 
+1. Click on the **Amazon S3** link to bring you over to the full log output.  The **Run Command** console will only show 2500 characters of the log output. 
 
     ![](./media/distributor-s3-output.png)
 
