@@ -89,7 +89,7 @@ In this lab you will deploy a new Managed Instance
 
 1.  Log in with your Administrator user and password
 
-    a.  If you switch back to your console you will see the latest
+    - If you switch back to your console you will see the latest
         message is "Connection accepted for session -- Meaning you
         established a connection with the remote service on the defined
         local port in your command
@@ -101,14 +101,14 @@ In this lab you will deploy a new Managed Instance
 1. Once logged in you can query the instance meta-data to verify you
     are on the right instance -- Open Powershell console
 
-   -   **Invoke-RestMethod -uri http://169.254.169.254/latest/meta-data/public-hostname**
+   - **Invoke-RestMethod -uri http://169.254.169.254/latest/meta-data/public-hostname**
 
    - **Invoke-RestMethod -uri http://169.254.169.254/latest/meta-data/instance-id**
 
-2. Got back to your AWS CLI session and kill the command -- You will
+1. Got back to your AWS CLI session and kill the command -- You will
     see the RDP session terminate as the tunnel is torn down
 
-3. Navigate back to Session Manager \> Session History and you can see
+1. Navigate back to Session Manager \> Session History and you can see
 
    - Session owner ARN
 

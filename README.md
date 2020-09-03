@@ -20,6 +20,18 @@ This workshop is intended to provide a 200 level hands on experience with core A
 16.	**AppConfig** - Create, manage, and safely deploy application configuration data to your targets at runtime.
 17.	**Hybrid Activations** - Create an activation to register on-premises servers and virtual machines (VMs), non-AWS Cloud servers, and other devices with AWS Systems Manager. Centrally manage Amazon EC2 instances and your hybrid environment from one location.
 
+## Workshop Agenda
+AWS Systems Manager Foundational Knowledge - Labs README, 1, 2, 17
+AWS Systems Manager Run Command and Automation - Labs 3, 12
+AWS Systems Manager State Manager - Labs 6
+AWS Systems Manager Distributor	- Labs 5
+AWS Systems Manager Session Manager - Labs 4, 16
+AWS Systems Manager Patch Manager - Labs 7
+AWS Systems Manager Maintenance Window and Change Calendar - Labs 8, 14
+AWS Systems Manager Compliance, OpsCenter, and Explorer - Labs 9,13,15
+AWS Systems Manager Inventory - Labs 11
+AWS Systems Manager Parameter Store - Labs 10
+AWS AppConfig - Lab 18
 
 ## Accessing AWS Account for Hands-on Labs
 
