@@ -1,3 +1,9 @@
+---
+weight: 1
+title: AWS System Manager
+description: This workshop is intended to provide a 200-300 level hands on experience with core AWS Systems Manager capabilities.
+---
+
 # AWS Systems Manager Workshop Introduction
 
 This workshop is intended to provide a 200 level hands on experience with core AWS Systems Manager capabilities. Lets start with a brief overview of AWS Systems Manager capabilities: 
