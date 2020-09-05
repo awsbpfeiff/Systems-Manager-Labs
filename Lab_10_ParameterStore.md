@@ -1,3 +1,11 @@
+---
+title: "Parameter Store"
+date: 2020-06-T14:10:29-04:00
+weight: 12
+chapter: false
+pre: "<b>12. </b>"
+---
+
 AWS Systems Manager Parameter Store provides secure, hierarchical storage for configuration data management and secrets management. You can store data such as passwords, database strings, Amazon Machine Image (AMI) IDs, and license codes as parameter values. You can store values as plain text or encrypted data. You can reference Systems Manager parameters in your scripts, commands, SSM documents, and configuration and automation workflows by using the unique name that you specified when you created the parameter.
 
 [Supported Services](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html)
