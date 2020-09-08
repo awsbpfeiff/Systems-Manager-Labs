@@ -42,13 +42,6 @@ In this lab we will create a mock managed instance by deploying an EC2 instance 
 1.  Go back to view instances and ensure that all transition to an
     Instance State of running
 
-1.  Navigate to [Systems Manager \> Instances & Nodes \> Managed Instances](https://console.aws.amazon.com/systems-manager/managed-instances)
-
-1.  Ensure that the new instance is listed (if not check your IAM role
-    attached to the instance)
-
-1.  Grab the instance ID as you will need this for the next section
-
 ## Create an activation 
 
 **To create a managed\-instance activation**
@@ -63,9 +56,9 @@ In this lab we will create a mock managed instance by deploying an EC2 instance 
 
 1. In the **Instance limit** field, specify the total number of on\-premises servers or VMs that you want to register with AWS as part of this activation\. 
 
-1. In the ** IAM role name** section, choose a service role option that enables your servers and VMs to communicate with AWS Systems Manager in the cloud:
+1. In the **IAM role** section, choose a service role option that enables your servers and VMs to communicate with AWS Systems Manager in the cloud:
 
-   - For this lab, choose **Use the system created default command execution role** to use a role and managed policy created by AWS\. 
+   - For this lab, choose **Use the default role created by the system (AmazonEC2RunCommandRoleForManagedInstances)**. 
 
 1. In the **Activation expiry date** field, specify an expiration date for the activation\. 
 **Note**  If you want to register additional managed instances after the expiry date, you must create a new activation\. The expiry date has no impact on registered and running instances\.
@@ -76,7 +69,7 @@ In this lab we will create a mock managed instance by deploying an EC2 instance 
 
 1. Choose **Create activation**\. Systems Manager immediately returns the Activation Code and ID to the console\. 
 
-- **Note:** It is important that you store the **Activation Code** off to the side (or in Parameter Store) for safe keeping.  It will not be retrievable once you navigate away from the page and require you to recreate the Activation.
+- **Note:** It is important that you store the **Activation Code** off to the side (or in Parameter Store) for safe keeping.  It will not be retrievable once you navigate away from the page and require you to recreate the Activation.  Take note of the **Activation ID** so it is readily available when registering an instance.   
 
    ![](./media/hybrid-activations-code.png)
 
@@ -116,7 +109,7 @@ sudo systemctl start amazon-ssm-agent
 
 1. Servers registered through Hybrid Activations can be treated like a native AWS instance including gathering Inventory, Patching, Tagging, and command execution.  
 
-1. WHen prepping your on-premises machines for **Systems Manager** you will need to use a tool to bootstrap the instances with the agent and run the registration commands.  
+1. When prepping your on-premises machines for **Systems Manager** you will need to use a tool to bootstrap the instances with the agent and run the registration commands.  
 
 1. Activation code will disappear once you navigate away from the page.  It is best to store it safely in a secrets management tool. 
 

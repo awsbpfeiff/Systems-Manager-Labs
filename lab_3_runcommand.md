@@ -27,9 +27,11 @@ In this lab we will execute our newly created document on our managed instances 
 1. Leave other parameters and Rate Control options as default.
 1.  Uncheck **Enable writing to an S3 bucket**.
 1.  Select **Run**.
+1. Select the refresh icon until **Status** changes to **Success**
 1. You will be brought over to the Command Status of the Run Command invocation you initiated.
     ![](./media/image4.png)
-1. Select one the instance IDs to drill down for details about the invocation of the Run Command operation and to review the output returned by stdout.
+1. Select the radio button next to one the instance IDs chose **View Output** 
+    - This will drill down into the details about the invocation of the **Run Command** operation and to review the output returned by stdout.
     - Expand **Step 1 -- Output**
         - **Important**: The command output displays a maximum of 2500 characters. You can view the complete command output in either Amazon S3 or CloudWatch logs, if you specify an S3 bucket or a CloudWatch logs group when you run the command.
 1. We will now use Session Manager to connect to our managed instance and confirm that our Run Command was successful.

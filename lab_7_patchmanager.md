@@ -60,7 +60,7 @@ in **Compliance reporting**, such as Critical or Medium, determines the
 severity of the compliance violation reported in System
 Manager **Compliance**.
 
-1.  In the **Patch exceptions** section in the **Rejected patches - optional** text box, enter **system-release.\** 
+1.  In the **Patch exceptions** section in the **Rejected patches - optional** text box, enter **system-release.***
     - This will [reject
         patches](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html) to
         new Amazon Linux releases that may advance you beyond the [Patch

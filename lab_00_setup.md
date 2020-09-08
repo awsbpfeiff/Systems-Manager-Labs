@@ -12,10 +12,10 @@ We will need to have a couple instances deployed to work with throughout the wor
 
 ## Create Key Pair
 1. In the AWS management console navigate to us-east-1.
-2. Use your administrator account to access the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
-3. In the EC2 navigation pane under **Network & Security**, select Key Pairs and then select **Create Key Pair**.
-4. In the **Create Key Pair** dialog box, type a **Key pair name** such as **SM-Workshop** and then select **Create**.
-5. Save the keypairname.pem file for optional later use accessing the EC2 instances created in this lab.
+1. Use your administrator account to access the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+1. In the EC2 navigation pane under **Network & Security**, select Key Pairs and then select **Create Key Pair**.
+1. In the **Create Key Pair** dialog box, type a **Key pair name** such as **SM-Workshop** and then select **Create**.
+1. Save the keypairname.pem file for optional later use accessing the EC2 instances created in this lab.
 
 ## Create an IAM Role and Instance Profile for Systems Manager
 By default, AWS Systems Manager doesn't have permission to perform actions on your instances. You must grant access by using an AWS Identity and Access Management (IAM) instance profile. An instance profile is a container that passes IAM role information to an Amazon Elastic Compute Cloud (Amazon EC2) instance at launch. Servers and virtual machines (VMs) in a hybrid environment require an IAM role to communicate with the Systems Manager service. The role grants AssumeRole trust to the Systems Manager service. You only need to create the service role for a hybrid environment once for each AWS account.

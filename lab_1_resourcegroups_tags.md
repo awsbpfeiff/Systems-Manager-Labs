@@ -54,4 +54,6 @@ In this lab we will cover creating a Resource Group and some tags that will be u
 1.  In the **Group tags - *optional*** section, you can optionally add tags to the resource group itself. For example, ```Key: App``` and ```Value: Front-end```.
     - **Important**: These group tags are not added to the individual resources.
 1.  Select **Create group**.
-1.  Repeat the above steps for the remaining two EC2 instances but tag them with the key-value pair of ```Patch Group``` : ```Web```.
+1.  Repeat the above steps for the remaining two EC2 instances:
+   - For **Group name**, enter **Web**
+   - Use the following tags with the key-value pair of ```Patch Group``` : ```Web```.

@@ -90,7 +90,7 @@ Group we created previously containing the 2 app servers.
         any CloudWatch Events that are raised while running tasks for
         these targets in this Maintenance Window.
 
-1.  In the **Targets** section, under **Select Targets by**:
+1.  In the **Targets** section, under **Target selection**:
     - Select the default **Specifying tags** to target instances by
         using Amazon EC2 tags that were previously assigned to the
         instances.
@@ -158,8 +158,7 @@ perform during the window:
         displayed in the console. To capture the complete output define
         and S3 bucket to receive the logs.
 
-1.  In **SNS notifications**, leave **Enable SNS
-    notifications** unchecked.
+1.  In **SNS notifications**, leave **Enable SNS notifications** unchecked.
     - (Optional) Specify **SNS notifications** to a
         preconfigured **SNS Topic** on all events or a specific event
         type for either the entire command or on a per-instance basis.
@@ -179,22 +178,21 @@ This section will show you how to check the status of the Run command
 using the Management Console.
 
 1.  After allowing enough time for your maintenance window to complete:
-    - Navigate to the AWS [Systems Manager
-        console](https://console.aws.amazon.com/systems-manager/).
-    - Select **Maintenance Windows**, and then select the **Window
-        ID** for your new maintenance window.
+    - Navigate to the AWS [Systems Manager console](https://console.aws.amazon.com/systems-manager/).
+    - Select **Maintenance Windows**, and then select the **Window ID** for your new maintenance window.
 
 1.  On the **Maintenance window ID** details page, select **History**.
 
 1.  Select a **Windows execution ID** and select **View details**.
 
-1.  On the **Command ID** details page, scroll down to the **Targets and
-    outputs** section, select an **Instance ID**, and select **View
-    output**.
+   - On the **Command ID** details page, scroll down to the **Targets and outputs** section
+   - Select the radio button next to an **Instance ID**
+   - Select **View output**
 
 1.  Select **Step 1 - Output** and review the output.
 
 1.  Select **Step 2 - Output** and review the output.
+   -  This shows that the steps for the Windows Platform were skipped.  This is a multi-platform document and checks the Operating System platform type before executing any tasks.  Platform information is metadata collected by Systems Manager one an instance is registered as a Managed Instance. 
 
 ### Checking Patch Compliance
 

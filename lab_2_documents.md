@@ -42,7 +42,7 @@ In this lab we will create a custom document that can be used with other Systems
     },
     "mainSteps": [{
         "action": "aws:runShellScript",
-        "name": "prepare-web-instance",
+        "name": "prepare_web_instance",
         "inputs": {
             "runCommand": [
                 "echo {{Message}}",
@@ -57,5 +57,5 @@ In this lab we will create a custom document that can be used with other Systems
 ```
 
 1. Choose **Create Document** to save the document.
-1. Choose the **Owned by me** tab and selec the new document you created, ```org-install-app```.
-    - Choose the **Content** tab and review the contents of the document. We will run this document on our managed instances using **Run command**.
+1. Choose the **Owned by me** tab and select the new document you created, ```org-install-app```.
+    - Choose the **Content** tab and review the contents of the document. We will run this document on our managed instances using **Run Command**.
