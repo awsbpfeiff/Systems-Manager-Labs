@@ -192,7 +192,7 @@ using the Management Console.
 1.  Select **Step 1 - Output** and review the output.
 
 1.  Select **Step 2 - Output** and review the output.
-   -  This shows that the steps for the Windows Platform were skipped.  This is a multi-platform document and checks the Operating System platform type before executing any tasks.  Platform information is metadata collected by Systems Manager one an instance is registered as a Managed Instance. 
+   -  This shows that the steps for the Windows Platform were skipped.  This is a multi-platform document and checks the Operating System platform type before executing any tasks.  Platform information is metadata collected by Systems Manager when an instance is registered as a Managed Instance. 
 
 ### Checking Patch Compliance
 
