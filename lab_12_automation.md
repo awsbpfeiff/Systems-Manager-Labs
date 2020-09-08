@@ -1,3 +1,11 @@
+---
+title: "Automation"
+date: 2020-06-T14:10:29-04:00
+weight: 14
+chapter: false
+pre: "<b>14. </b>"
+---
+
 Systems Manager Automation simplifies common maintenance and deployment tasks of EC2 instances and other AWS resources. Automation enables you to do the following:
 
 * Build Automation workflows to configure and manage instances and AWS resources.

@@ -1,3 +1,11 @@
+---
+title: "Distributor"
+date: 2020-06-T14:10:29-04:00
+weight: 7
+chapter: false
+pre: "<b>7. </b>"
+---
+
 AWS Systems Manager Distributor lets you package your own software—and find AWS-provided agent software packages, such as AmazonCloudWatchAgent, or third-party packages such as Trend Micro—to install on AWS Systems Manager managed instances. Distributor publishes resources, such as software packages, to AWS Systems Manager managed instances. Publishing a package advertises specific versions of the package's document—a Systems Manager document that you create when you add the package in Distributor—to managed instances that you identify by managed instance IDs, AWS account IDs, tags, or an AWS Region.
 
 After you create a package in Distributor, which creates an AWS Systems Manager document, you can install the package in one of the following ways:

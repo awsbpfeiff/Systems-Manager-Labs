@@ -1,3 +1,11 @@
+---
+title: "Documents"
+date: 2020-06-T14:10:29-04:00
+weight: 4
+chapter: false
+pre: "<b>4. </b>"
+---
+
 An AWS Systems Manager document (SSM document) the configuration options, policies, and the actions that Systems Manager performs on your managed instances and other AWS resources. Systems Manager includes more than a hundred pre-configured documents that you can use by specifying parameters at runtime. Documents use JavaScript Object Notation (JSON) or YAML, and they include steps and parameters that you specify.
 
 There are multiple document types for different Systems Manager capabilities.  They can be reviewed here: 

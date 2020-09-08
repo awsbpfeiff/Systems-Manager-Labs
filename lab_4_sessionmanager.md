@@ -1,3 +1,11 @@
+---
+title: "Session Manager"
+date: 2020-06-T14:10:29-04:00
+weight: 6
+chapter: false
+pre: "<b>6. </b>"
+---
+
 Session Manager is a fully managed AWS Systems Manager capability that lets you manage your EC2 instances, on-premises instances, and virtual machines (VMs) through an interactive one-click browser-based shell or through the AWS CLI. Session Manager provides secure and auditable instance management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys. Session Manager also makes it easy to comply with corporate policies that require controlled access to instances, strict security practices, and fully auditable logs with instance access details, while still providing end users with simple one-click cross-platform access to your managed instances.
 
 In order to establish a session, the IAM user or role must have Session Manager permissions as well as access to the target managed instances. At minimum, SSM Agent version 2.3.68.0 or later must be installed on the instances you want to connect to through sessions.

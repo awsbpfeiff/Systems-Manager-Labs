@@ -1,3 +1,11 @@
+---
+title: "OpsCenter"
+date: 2020-06-T14:10:29-04:00
+weight: 15
+chapter: false
+pre: "<b>15. </b>"
+---
+
 OpsCenter provides a central location where operations engineers and IT professionals can view, investigate, and resolve operational work items (OpsItems) related to AWS resources. OpsCenter is designed to reduce mean time to resolution for issues impacting AWS resources. This Systems Manager capability aggregates and standardizes OpsItems across services while providing contextual investigation data about each OpsItem, related OpsItems, and related resources. OpsCenter also provides Systems Manager Automation documents (runbooks) that you can use to quickly resolve issues. You can specify searchable, custom data for each OpsItem. You can also view automatically-generated summary reports about OpsItems by status and source.
 
 OpsCenter is integrated with Amazon CloudWatch Events. This means you can create CloudWatch Events rules that automatically create OpsItems for any AWS service that publishes events to CloudWatch Events. For example, you can configure SSM OpsItems as the target for the following types of events, and hundreds more:

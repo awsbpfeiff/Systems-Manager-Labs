@@ -1,3 +1,11 @@
+---
+title: "Hybrid Activations"
+date: 2020-06-T14:10:29-04:00
+weight: 19
+chapter: false
+pre: "<b>19. </b>"
+---
+
 A hybrid environment includes on-premises servers and virtual machines (VMs) that have been configured for use with Systems Manager, including VMs in other cloud environments. To set up servers and virtual machines \(VMs\) in your hybrid environment as Managed Instances, you need to create a managed\-instance activation\. After you successfully complete the activation, you *immediately* receive an Activation Code and Activation ID\. You specify this Code/ID combination when you install SSM Agent on servers and VMs in your hybrid environment\. The Code/ID provides secure access to the Systems Manager service from your managed instances\.
 
 **Important**  

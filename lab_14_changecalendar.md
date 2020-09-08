@@ -1,3 +1,11 @@
+---
+title: "Change Calendar"
+date: 2020-06-T14:10:29-04:00
+weight: 16
+chapter: false
+pre: "<b>16. </b>"
+---
+
 Systems Manager Change Calendar lets you set up date and time ranges when actions you specify (for example, in Systems Manager Automation documents) may or may not be performed in your AWS account. In Change Calendar, these ranges are called events. When you create a Change Calendar entry, you are creating a Systems Manager document of the type ChangeCalendar. In Change Calendar, the document stores iCalendar 2.0 data in plaintext format. Events that you add to the Change Calendar entry become part of the document.
 
 There are two types of Change Calendar entries:

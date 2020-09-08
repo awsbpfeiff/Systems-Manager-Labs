@@ -1,3 +1,11 @@
+---
+title: "Resource Groups"
+date: 2020-06-T14:10:29-04:00
+weight: 1
+chapter: false
+pre: "<b>3. </b>"
+---
+
 You can use *resource groups* to organize your AWS resources. Resource groups make it easier to manage, monitor, and automate tasks on large numbers of resources at one time.
 
 AWS Resource Groups provides two general methods for defining a resource group. Both methods involve using a query to identify the members for a group.

@@ -1,4 +1,10 @@
-
+---
+title: "AppConfig"
+date: 2020-06-T14:10:29-04:00
+weight: 20
+chapter: false
+pre: "<b>20. </b>"
+---
 
 In this lab, we will go over the topics that describe how to use AWS AppConfig features to create and deploy a configuration to your hosts or targets.
 

@@ -1,3 +1,11 @@
+---
+title: "State Manager"
+date: 2020-06-T14:10:29-04:00
+weight: 8
+chapter: false
+pre: "<b>8. </b>"
+---
+
 AWS Systems Manager State Manager is a secure and scalable configuration management service that automates the process of keeping your Amazon EC2 and hybrid infrastructure in a state that you define.
 
 The following list describes the types of tasks you can perform with State Manager.

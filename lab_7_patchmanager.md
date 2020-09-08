@@ -1,3 +1,11 @@
+---
+title: "Patch Manager"
+date: 2020-06-T14:10:29-04:00
+weight: 9
+chapter: false
+pre: "<b>9. </b>"
+---
+
 Patch Manager uses **patch baselines**, which include rules for
 auto-approving patches within days of their release, as well as a list
 of approved and rejected patches. Later in this lab we will schedule
