@@ -26,18 +26,37 @@ This workshop is intended to provide a 200 level hands on experience with core A
 16.	**AppConfig** - Create, manage, and safely deploy application configuration data to your targets at runtime.
 17.	**Hybrid Activations** - Create an activation to register on-premises servers and virtual machines (VMs), non-AWS Cloud servers, and other devices with AWS Systems Manager. Centrally manage Amazon EC2 instances and your hybrid environment from one location.
 
-## Workshop Agenda
-- AWS Systems Manager Foundational Knowledge - Labs README, 1, 2, 17
-- AWS Systems Manager Run Command and Automation - Labs 3, 12
-- AWS Systems Manager State Manager - Labs 6
-- AWS Systems Manager Distributor	- Labs 5
-- AWS Systems Manager Session Manager - Labs 4, 16
-- AWS Systems Manager Patch Manager - Labs 7
-- AWS Systems Manager Maintenance Window and Change Calendar - Labs 8, 14
-- AWS Systems Manager Compliance, OpsCenter, and Explorer - Labs 9,13,15
-- AWS Systems Manager Inventory - Labs 11
-- AWS Systems Manager Parameter Store - Labs 10
-- AWS AppConfig - Lab 18
+## Hands-on Labs Agenda
+- [Hands-on Labs Setup](setup)
+- **AWS Systems Manager Foundational Knowledge**
+  - [Resource Groups](resourcegroups_tags) 
+  - [Documents](documents)
+  - [Hybrid Activations](hybridactivations)
+- **AWS Systems Manager Run Command and Automation** - 
+  - [Run Command](runcommand)
+  - [Automation](automation)
+- **AWS Systems Manager State Manager** 
+  - [State Manager](statemanager)
+- **AWS Systems Manager Distributor**
+  - [Distributor](distributor)
+- **AWS Systems Manager Session Manager** 
+  - [Session Manager](sessionmanager)
+  - [Port Forwarding with Session Manager](sessionmanager-portforward)
+- **AWS Systems Manager Patch Manager**
+  - [Patch Manager](patchmanager)
+- **AWS Systems Manager Maintenance Window and Change Calendar** 
+  - [Maintenance Window](maintenancewindow)
+  - [Change Calendar](changecalendar)
+- **AWS Systems Manager Compliance, OpsCenter, and Explorer** 
+  - [Compliance](compliance)
+  - [OpsCenter](opscenter)
+  - [Explorer](explorer)
+- **AWS Systems Manager Inventory**
+  - [Inventory](inventory)
+- **AWS Systems Manager Parameter Store** 
+  - [Parameter Store](parameterstore)
+- **AWS AppConfig**
+  - [AppConfig](appconfig)
 
 ## Accessing AWS Account for Hands-on Labs
 
