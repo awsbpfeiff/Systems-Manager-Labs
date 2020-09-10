@@ -32,7 +32,7 @@ This workshop is intended to provide a 200 level hands on experience with core A
   - [Resource Groups](resourcegroups_tags) 
   - [Documents](documents)
   - [Hybrid Activations](hybridactivations)
-- **AWS Systems Manager Run Command and Automation** - 
+- **AWS Systems Manager Run Command and Automation**
   - [Run Command](runcommand)
   - [Automation](automation)
 - **AWS Systems Manager State Manager** 
