@@ -27,36 +27,36 @@ This workshop is intended to provide a 200 level hands on experience with core A
 17.	**Hybrid Activations** - Create an activation to register on-premises servers and virtual machines (VMs), non-AWS Cloud servers, and other devices with AWS Systems Manager. Centrally manage Amazon EC2 instances and your hybrid environment from one location.
 
 ## Hands-on Labs Agenda
-- [Hands-on Labs Setup](setup)
+- [Hands-on Labs Setup](./setup.md)
 - **AWS Systems Manager Foundational Knowledge**
-  - [Resource Groups](resourcegroups_tags) 
-  - [Documents](documents)
-  - [Hybrid Activations](hybridactivations)
+  - [Resource Groups](./resourcegroups_tags.md) 
+  - [Documents](./documents.md)
+  - [Hybrid Activations](./hybridactivations.md)
 - **AWS Systems Manager Run Command and Automation**
-  - [Run Command](runcommand)
-  - [Automation](automation)
+  - [Run Command](./runcommand.md)
+  - [Automation](./automation.md)
 - **AWS Systems Manager State Manager** 
-  - [State Manager](statemanager)
+  - [State Manager](./statemanager.md)
 - **AWS Systems Manager Distributor**
-  - [Distributor](distributor)
+  - [Distributor](./distributor.md)
 - **AWS Systems Manager Session Manager** 
-  - [Session Manager](sessionmanager)
-  - [Port Forwarding with Session Manager](sessionmanager-portforward)
+  - [Session Manager](./sessionmanager.md)
+  - [Port Forwarding with Session Manager](./sessionmanager-portforward.md)
 - **AWS Systems Manager Patch Manager**
-  - [Patch Manager](patchmanager)
+  - [Patch Manager](./patchmanager.md)
 - **AWS Systems Manager Maintenance Window and Change Calendar** 
-  - [Maintenance Window](maintenancewindow)
-  - [Change Calendar](changecalendar)
+  - [Maintenance Window](./maintenancewindow.md)
+  - [Change Calendar](./changecalendar.md)
 - **AWS Systems Manager Compliance, OpsCenter, and Explorer** 
-  - [Compliance](compliance)
-  - [OpsCenter](opscenter)
-  - [Explorer](explorer)
+  - [Compliance](./compliance.md)
+  - [OpsCenter](./opscenter.md)
+  - [Explorer](./explorer.md)
 - **AWS Systems Manager Inventory**
-  - [Inventory](inventory)
+  - [Inventory](./inventory.md)
 - **AWS Systems Manager Parameter Store** 
-  - [Parameter Store](parameterstore)
+  - [Parameter Store](./parameterstore.md)
 - **AWS AppConfig**
-  - [AppConfig](appconfig)
+  - [AppConfig](./appconfig.md)
 
 ## Accessing AWS Account for Hands-on Labs
 
